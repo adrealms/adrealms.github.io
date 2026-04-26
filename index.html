@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<!-- Aleksandr Li — Landing Page v1.4 (copy edits round 1) -->
+<!-- Aleksandr Li — Landing Page v1.5 (click-to-play with sound + favicon) -->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Aleksandr Li — Paid Media & Creative Strategy</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#0E0E10"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
@@ -297,13 +302,14 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .cv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px;position:relative;z-index:1;max-width:920px;margin-left:auto;margin-right:auto}
 .cv-card{background:var(--b3);border:1px solid var(--br2);border-radius:8px;overflow:hidden;transition:border-color .3s,transform .25s ease;position:relative}
 .cv-card:hover{border-color:var(--br);transform:translateY(-3px)}
-.cv-media{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:var(--b4)}
+.cv-media{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:var(--b4);cursor:pointer}
 .cv-media video,.cv-media img{width:100%;height:100%;object-fit:cover;display:block}
-.cv-media video{cursor:pointer}
+.cv-media video{cursor:pointer;background:#000}
 /* Play indicator overlay for videos */
 .cv-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(200,169,110,.92);display:flex;align-items:center;justify-content:center;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:2;backdrop-filter:blur(4px);box-shadow:0 4px 20px rgba(0,0,0,.4)}
 .cv-play::before{content:'';width:0;height:0;border-left:14px solid var(--b);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
-.cv-card.playing .cv-play{opacity:0;transform:translate(-50%,-50%) scale(.7)}
+.cv-card:hover .cv-play{transform:translate(-50%,-50%) scale(1.08);background:rgba(226,201,138,.96)}
+.cv-card.playing .cv-play{opacity:0;transform:translate(-50%,-50%) scale(.7);pointer-events:none}
 .cv-info{padding:20px 22px}
 .cv-metric{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.35rem;color:var(--g);letter-spacing:.05em;line-height:1;display:block;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cv-metric-lbl{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--m2);margin-bottom:14px;display:block}
@@ -734,7 +740,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
     <div class="cv-grid">
       <div class="cv-card r">
         <div class="cv-media">
-          <video src="videos/v01_acp_705k.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="videos/v01_acp_705k.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
@@ -746,7 +752,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
       <div class="cv-card r d1">
         <div class="cv-media">
-          <video src="videos/v02_acp_1_2m.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="videos/v02_acp_1_2m.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
@@ -758,7 +764,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
       <div class="cv-card r d2">
         <div class="cv-media">
-          <video src="videos/v03_acp_349k.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="videos/v03_acp_349k.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
@@ -770,7 +776,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
       <div class="cv-card r">
         <div class="cv-media">
-          <video src="videos/v04_acp_500k.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="videos/v04_acp_500k.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
@@ -782,7 +788,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
       <div class="cv-card text-metric r d1">
         <div class="cv-media">
-          <video src="videos/v05_mingle.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="videos/v05_mingle.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
@@ -794,7 +800,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
       <div class="cv-card text-metric r d2">
         <div class="cv-media">
-          <video src="videos/v06_glp1.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="videos/v06_glp1.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
@@ -806,7 +812,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
       <div class="cv-card text-metric r">
         <div class="cv-media">
-          <video src="videos/v07_iron.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="videos/v07_iron.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
@@ -818,7 +824,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
       <div class="cv-card text-metric r d1">
         <div class="cv-media">
-          <video src="videos/v08_zigpoll.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="videos/v08_zigpoll.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
@@ -830,7 +836,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
       <div class="cv-card text-metric r d2">
         <div class="cv-media">
-          <video src="videos/v09_titantrek.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="videos/v09_titantrek.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
@@ -1194,38 +1200,68 @@ document.querySelectorAll('.cc').forEach(c=>counterObs.observe(c));
   });
 })();
 
-/* 4. Creative video — hover to play (desktop), tap to play (mobile) */
+/* 4. Creative video — click to play with sound. One video at a time. */
 (function(){
-  document.querySelectorAll('.cv-card').forEach(card=>{
-    const video=card.querySelector('video');
-    if(!video)return;
+  const cards = document.querySelectorAll('.cv-card');
 
-    if(hasHover){
-      /* Desktop: hover to play */
-      card.addEventListener('mouseenter',()=>{
-        video.play().then(()=>card.classList.add('playing')).catch(()=>{});
-      });
-      card.addEventListener('mouseleave',()=>{
+  function stopAllVideos(except){
+    cards.forEach(c => {
+      const v = c.querySelector('video');
+      if(!v || v === except) return;
+      v.pause();
+      v.currentTime = 0;
+      v.muted = true;
+      v.removeAttribute('controls');
+      c.classList.remove('playing');
+    });
+  }
+
+  cards.forEach(card => {
+    const video = card.querySelector('video');
+    if(!video) return;
+
+    /* Block default video click — we handle it on the card level */
+    video.addEventListener('click', e => {
+      e.stopPropagation();
+      togglePlay();
+    });
+
+    card.addEventListener('click', e => {
+      /* Don't trigger if clicked on native controls */
+      if(e.target !== card && e.target !== card.querySelector('.cv-media') && e.target !== card.querySelector('.cv-play')) {
+        if(e.target.tagName === 'VIDEO') return; /* let video handler do it */
+      }
+      togglePlay();
+    });
+
+    function togglePlay(){
+      if(video.paused){
+        stopAllVideos(video);
+        video.muted = false;
+        video.currentTime = 0;
+        video.setAttribute('controls', '');
+        const p = video.play();
+        if(p && p.then) p.then(() => card.classList.add('playing')).catch(err => {
+          /* If unmute autoplay fails, fallback to muted */
+          video.muted = true;
+          video.play().then(() => card.classList.add('playing')).catch(()=>{});
+        });
+      } else {
         video.pause();
-        video.currentTime=0;
+        video.currentTime = 0;
+        video.muted = true;
+        video.removeAttribute('controls');
         card.classList.remove('playing');
-      });
-    }else{
-      /* Mobile/touch: tap to toggle */
-      card.addEventListener('click',e=>{
-        if(video.paused){
-          /* Pause all other playing videos first */
-          document.querySelectorAll('.cv-card.playing video').forEach(v=>{
-            if(v!==video){v.pause();v.currentTime=0;v.closest('.cv-card').classList.remove('playing');}
-          });
-          video.play().then(()=>card.classList.add('playing')).catch(()=>{});
-        }else{
-          video.pause();
-          video.currentTime=0;
-          card.classList.remove('playing');
-        }
-      });
+      }
     }
+
+    /* When video ends naturally, reset to preview state */
+    video.addEventListener('ended', () => {
+      video.currentTime = 0;
+      video.muted = true;
+      video.removeAttribute('controls');
+      card.classList.remove('playing');
+    });
   });
 })();
 </script>
