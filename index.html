@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Aleksandr Li — Landing Page v1.5 (click-to-play with sound + favicon) -->
+<!-- Aleksandr Li — Landing Page v1.6 (mobile fixes) -->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -195,8 +195,8 @@ h2.st .t{color:var(--t2)}
 .ckv{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.55rem;color:var(--g);letter-spacing:.02em;line-height:1;display:block;white-space:nowrap}
 .ckv.t{color:var(--t1)}
 .ckl{font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--m);margin-top:5px;display:block;white-space:nowrap}
-.cb{max-height:0;overflow:hidden;transition:max-height .5s ease}
-.cc.open .cb{max-height:500px}
+.cb{max-height:0;overflow:hidden;transition:max-height .4s ease-out}
+.cc.open .cb{max-height:2500px}
 .cbi{padding:0 36px 32px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
 .cbi p{font-size:.86rem;color:var(--m2);line-height:1.8;margin-bottom:12px}
 .cbi p strong{color:var(--tx);font-weight:500}
@@ -424,8 +424,8 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
   /* Creatives mobile */
   #creatives{padding:80px 24px}
-  .cv-grid{grid-template-columns:1fr;gap:14px}
-  .cv-static-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .cv-grid{grid-template-columns:1fr;gap:14px;max-width:300px;margin-left:auto;margin-right:auto}
+  .cv-static-grid{grid-template-columns:1fr;gap:14px;max-width:380px;margin-left:auto;margin-right:auto}
   .cv-static-divider{margin-top:60px;padding-top:48px}
   .cv-info{padding:18px 20px}
   .cv-metric{font-size:1.25rem}
@@ -445,7 +445,6 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
   .ckv{font-size:1.35rem}
   .ckl{font-size:.55rem}
   .ckpis{gap:6px}
-  .cv-static-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
