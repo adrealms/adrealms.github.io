@@ -57,8 +57,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-l{display:flex;gap:36px;list-style:none}
 .nav-l a{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--m2);transition:color .2s}
 .nav-l a:hover{color:var(--g)}
-.nbtn{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--b);background:var(--g);padding:11px 24px;border-radius:3px;transition:background .2s}
-.nbtn:hover{background:var(--g2)}
+.nbtn{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--b);background:var(--g);padding:11px 24px;border-radius:3px;transition:background .2s,transform .2s;position:relative;animation:nbtnPulse 3s ease-in-out infinite}
+.nbtn:hover{background:var(--g2);animation:none;transform:translateY(-1px)}
+@keyframes nbtnPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(200,169,110,0)}
+  50%{box-shadow:0 0 18px 2px rgba(200,169,110,.5)}
+}
+/* Reduce motion accessibility */
+@media (prefers-reduced-motion: reduce){
+  .nbtn{animation:none}
+}
 
 /* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;position:relative;overflow:hidden}
@@ -1087,7 +1095,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
     <div class="ccs r">
       <div class="cci"><div class="ccl">Email</div><a href="mailto:leks.li.work@gmail.com" class="ccv">leks.li.work@gmail.com</a></div>
       <div class="cci"><div class="ccl">LinkedIn</div><a href="https://linkedin.com/in/leks-li" target="_blank" class="ccv">linkedin.com/in/leks-li</a></div>
-      <div class="cci"><div class="ccl">Location</div><div class="ccv">Europe · GMT+1</div></div>
+      <div class="cci"><div class="ccl">Location</div><div class="ccv">Europe · GMT+2</div></div>
       <div class="cci"><div class="ccl">Response Time</div><div class="ccv">Within 24 hours</div></div>
     </div>
   </div>
