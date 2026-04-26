@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<!-- Aleksandr Li — Landing Page v1.4 (copy edits round 1) -->
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aleksandr Li — Paid Media & Creative Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* Primary brand */
+  --g:#C8A96E;
+  --g2:#E2C98A;
+  --gd:rgba(200,169,110,0.12);
+  --gg:rgba(200,169,110,0.07);
+  /* Teal accent — for positive metrics, data, success */
+  --t1:#5EEAD4;
+  --t2:#2DD4BF;
+  --td:rgba(94,234,212,0.10);
+  --tg:rgba(94,234,212,0.06);
+  /* Coral accent — for negative/old way/urgency */
+  --c1:#FB7185;
+  --c2:#F43F5E;
+  --cd:rgba(251,113,133,0.10);
+  /* Backgrounds */
+  --b:#070708;
+  --b2:#0E0E10;
+  --b3:#141417;
+  --b4:#1B1B1F;
+  /* Text */
+  --tx:#F0EAE0;
+  --m:#6B6560;
+  --m2:#9A928A;
+  /* Borders */
+  --br:rgba(200,169,110,0.18);
+  --br2:rgba(255,255,255,0.06);
+  --brt:rgba(94,234,212,0.18);
+}
+html{scroll-behavior:smooth}
+body{background:var(--b);color:var(--tx);font-family:'Outfit',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.r{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.r.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(7,7,8,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--br2)}
+.logo{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.3rem;letter-spacing:.08em}
+.logo span{color:var(--g)}
+.nav-l{display:flex;gap:36px;list-style:none}
+.nav-l a{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--m2);transition:color .2s}
+.nav-l a:hover{color:var(--g)}
+.nbtn{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--b);background:var(--g);padding:11px 24px;border-radius:3px;transition:background .2s}
+.nbtn:hover{background:var(--g2)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;top:-150px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,.07) 0%,transparent 65%);pointer-events:none}
+#hero::after{content:'';position:absolute;bottom:-100px;left:-150px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(94,234,212,.05) 0%,transparent 65%);pointer-events:none}
+.hgrid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(200,169,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,110,.04) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 70% at 80% 30%,black 0%,transparent 100%)}
+.spotlight{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle 460px at var(--mx,50%) var(--my,30%),rgba(200,169,110,.10) 0%,rgba(200,169,110,.03) 35%,transparent 70%);opacity:0;transition:opacity .4s ease;z-index:1;will-change:opacity}
+.spotlight.active{opacity:1}
+.hi{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;position:relative;z-index:2}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:var(--gd);border:1px solid var(--br);border-radius:100px;padding:6px 16px 6px 6px;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:28px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--t2);animation:pulse 2s ease-in-out infinite;box-shadow:0 0 8px var(--t1)}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+h1.ht{font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(3.5rem,7vw,6.5rem);line-height:.95;letter-spacing:.02em;margin-bottom:28px}
+h1.ht .g{color:var(--g)}
+h1.ht .o{-webkit-text-stroke:1px var(--g);color:transparent}
+.hsub{font-size:1.05rem;color:var(--m2);max-width:540px;line-height:1.75;margin-bottom:32px}
+.hsub strong{color:var(--tx);font-weight:500}
+.hpills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;font-weight:600;color:var(--m2);border:1px solid var(--br2);border-radius:100px;padding:7px 14px}
+.pill .pdot{width:6px;height:6px;border-radius:50%;background:var(--t2)}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
+.bg{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--b);background:var(--g);padding:16px 32px;border-radius:3px;transition:background .2s,transform .15s,box-shadow .2s}
+.bg:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(200,169,110,.25)}
+.bgh{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tx);padding:16px 32px;border-radius:3px;border:1px solid var(--br2);transition:border-color .2s,color .2s}
+.bgh:hover{border-color:var(--br);color:var(--g)}
+.htrust{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.htrust-stars{color:var(--g);font-size:.85rem;letter-spacing:2px}
+.htrust-text{font-size:.78rem;color:var(--m2)}
+.htrust-text strong{color:var(--tx);font-weight:600}
+
+/* HERO CARD - right side */
+.hcard{background:var(--b3);border:1px solid var(--br);border-radius:8px;padding:30px;position:relative}
+.hcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),var(--t2),transparent)}
+.hclbl{display:flex;align-items:center;justify-content:space-between;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--m);margin-bottom:22px}
+.hclbl .live{display:flex;align-items:center;gap:6px;color:var(--t2)}
+.hclbl .live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--t2);animation:pulse 2s ease-in-out infinite;box-shadow:0 0 6px var(--t1)}
+.hsgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.hstat{background:var(--b4);border:1px solid var(--br2);border-radius:3px;padding:18px 14px;position:relative;overflow:hidden}
+.hstat.hl{border-color:var(--brt)}
+.hstat.hl::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--t2),transparent)}
+.hsv{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.85rem;letter-spacing:.02em;line-height:1;display:block;margin-bottom:4px;color:var(--g)}
+.hstat.hl .hsv{color:var(--t1)}
+.hsl{font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--m)}
+.hplats{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.pp{font-size:.7rem;font-weight:600;color:var(--m2);background:var(--b4);border:1px solid var(--br2);border-radius:100px;padding:5px 12px}
+.hquote{margin-top:18px;padding-top:16px;border-top:1px solid var(--br2);font-size:.79rem;color:var(--m2);font-style:italic;line-height:1.6}
+.hquote strong{display:block;margin-top:8px;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);font-style:normal}
+
+/* TRUST */
+#trust{background:var(--b2);border-top:1px solid var(--br2);border-bottom:1px solid var(--br2);padding:26px 48px}
+.ti{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:36px}
+.tlbl{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--m);white-space:nowrap;flex-shrink:0}
+.tdiv{width:1px;height:32px;background:var(--br2);flex-shrink:0}
+.titems{display:flex;gap:30px;flex-wrap:wrap;align-items:center}
+.titem{display:flex;flex-direction:column;gap:2px}
+.tn{font-size:.71rem;font-weight:700;color:var(--tx)}
+.trs{font-size:.64rem;font-weight:500;color:var(--t2)}
+
+/* NUMBERS BAR */
+#numbers{padding:0}
+.ng{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--br2);border-bottom:1px solid var(--br2)}
+.nc{padding:54px 40px;border-right:1px solid var(--br2);position:relative;overflow:hidden;text-align:left}
+.nc:last-child{border-right:none}
+.nc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent);transform:scaleX(0);transition:transform .4s}
+.nc:hover::after{transform:scaleX(1)}
+.nv{font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(2.8rem,4vw,4rem);color:var(--g);letter-spacing:.02em;line-height:1;display:block;margin-bottom:10px}
+.nl{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--m)}
+
+/* SHARED */
+section{padding:100px 48px}
+.mx{max-width:1200px;margin:0 auto}
+.stag{display:inline-flex;align-items:center;gap:8px;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g);background:var(--gd);border:1px solid var(--br);border-radius:100px;padding:5px 14px;margin-bottom:18px}
+.stag.teal{color:var(--t2);background:var(--td);border-color:var(--brt)}
+h2.st{font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(2.6rem,4.8vw,4.6rem);letter-spacing:.02em;line-height:.95;margin-bottom:18px}
+h2.st .g{color:var(--g)}
+h2.st .t{color:var(--t2)}
+.ssub{font-size:.96rem;color:var(--m2);max-width:560px;line-height:1.75}
+
+/* ABOUT */
+#about{background:var(--b2);position:relative;overflow:hidden}
+#about::before{content:'';position:absolute;top:50%;left:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(94,234,212,.04) 0%,transparent 65%);pointer-events:none}
+.about-header{margin-bottom:56px;text-align:center;position:relative;z-index:1}
+.about-header .stag{margin-left:auto;margin-right:auto;margin-bottom:18px}
+.about-header h2{margin-bottom:0;max-width:880px;margin-left:auto;margin-right:auto}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;position:relative;z-index:1;margin-bottom:48px}
+.about-text-block p{font-size:.96rem;color:var(--m2);line-height:1.8;margin-bottom:18px}
+.about-text-block p strong{color:var(--tx);font-weight:500}
+.about-text-block p .key{color:var(--g);font-weight:600}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.acard{background:var(--b3);border:1px solid var(--br2);border-radius:6px;padding:24px;transition:border-color .3s,transform .2s}
+.acard:hover{border-color:var(--brt);transform:translateY(-2px)}
+.acard-icon{width:36px;height:36px;border-radius:8px;background:var(--td);border:1px solid var(--brt);display:flex;align-items:center;justify-content:center;color:var(--t2);font-family:'Bebas Neue',Impact,sans-serif;font-size:1.1rem;margin-bottom:14px}
+.acard h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx);margin-bottom:8px}
+.acard p{font-size:.83rem;color:var(--m2);line-height:1.6}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:36px;border-top:1px solid var(--br2);position:relative;z-index:1}
+.atag{font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--g);background:var(--gd);border:1px solid var(--br);padding:6px 14px;border-radius:100px}
+
+/* PROCESS */
+#process{background:var(--b)}
+.ph{text-align:center;margin-bottom:64px}
+.ph .ssub{margin:0 auto}
+.ps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.step{background:var(--b3);border:1px solid var(--br2);padding:32px 26px;position:relative;overflow:hidden;transition:border-color .3s}
+.step:hover{border-color:var(--br)}
+.snum{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--m);margin-bottom:8px}
+.snum.s0{display:inline-block;background:var(--g);color:var(--b);padding:3px 10px;border-radius:100px;margin-bottom:12px}
+.stitle{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.55rem;letter-spacing:.02em;color:var(--tx);margin-bottom:12px;line-height:1}
+.sdesc{font-size:.81rem;color:var(--m2);line-height:1.65;margin-bottom:14px}
+.schecks{display:flex;flex-direction:column;gap:7px}
+.sc{display:flex;align-items:center;gap:8px;font-size:.77rem;color:var(--m2)}
+.sc::before{content:'';width:14px;height:14px;flex-shrink:0;border-radius:50%;background:var(--td);border:1px solid var(--brt);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 5l2.5 2.5L8 3' stroke='%232DD4BF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.sarr{position:absolute;top:50%;right:-14px;transform:translateY(-50%);width:28px;height:28px;background:var(--b);border:1px solid var(--br);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--g);font-size:.75rem;z-index:1}
+.step:last-child .sarr{display:none}
+
+/* CASES */
+#cases{background:var(--b2)}
+.ch{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:40px}
+.cl{display:flex;flex-direction:column;gap:12px}
+.cc{background:var(--b);border:1px solid var(--br2);border-radius:6px;overflow:hidden;transition:border-color .3s;cursor:pointer}
+.cc:hover{border-color:var(--br)}
+.cch{display:grid;grid-template-columns:1fr auto;align-items:center;padding:26px 36px 22px;gap:36px}
+.ctag{font-size:.61rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:7px}
+.cname{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.6rem;letter-spacing:.02em;color:var(--tx);line-height:1}
+.ckpis{display:grid;grid-template-columns:repeat(3,minmax(80px,1fr));gap:16px;align-items:center;width:340px}
+.ckpis>div{text-align:center;min-width:0}
+.ckv{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.55rem;color:var(--g);letter-spacing:.02em;line-height:1;display:block;white-space:nowrap}
+.ckv.t{color:var(--t1)}
+.ckl{font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--m);margin-top:5px;display:block;white-space:nowrap}
+.cb{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.cc.open .cb{max-height:500px}
+.cbi{padding:0 36px 32px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.cbi p{font-size:.86rem;color:var(--m2);line-height:1.8;margin-bottom:12px}
+.cbi p strong{color:var(--tx);font-weight:500}
+.ctbl{width:100%;border-collapse:collapse}
+.ctbl tr{border-bottom:1px solid var(--br2)}
+.ctbl td{padding:9px 0;font-size:.82rem}
+.ctbl td:first-child{color:var(--m)}
+.ctbl td:last-child{color:var(--tx);font-weight:500;text-align:right}
+.clink{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:.71rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g);border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s}
+.clink:hover{border-color:var(--g)}
+.ccta{text-align:center;margin-top:48px}
+/* Expand bar at bottom of case card */
+.cexpand{display:flex;align-items:center;justify-content:center;padding:14px 36px;border-top:1px solid var(--br2);cursor:pointer;transition:background .2s,border-color .3s;color:var(--m2);gap:10px;font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.cexpand:hover{background:var(--gd);color:var(--g)}
+.cc.open .cexpand{border-top-color:var(--br)}
+.cexpand-arrow{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--gd);border:1px solid var(--br);color:var(--g);font-size:.85rem;line-height:1;transition:transform .35s ease}
+.cc.open .cexpand-arrow{transform:rotate(180deg)}
+
+/* TESTIMONIAL */
+#testimonial{background:var(--b);border-top:1px solid var(--br2);padding:80px 48px}
+.tw{max-width:880px;margin:0 auto;text-align:center}
+.stars{font-size:1rem;color:var(--g);letter-spacing:3px;margin-bottom:24px}
+.tq{font-family:'Outfit',system-ui,sans-serif;font-style:italic;font-weight:300;font-size:clamp(1.05rem,1.6vw,1.45rem);letter-spacing:0;line-height:1.55;color:var(--tx);margin-bottom:28px}
+.tq .g{color:var(--g);font-style:italic;font-weight:500}
+.tsrc{font-size:.71rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--m)}
+
+/* COMPARISON */
+#comparison{background:var(--b2)}
+.comph{text-align:center;margin-bottom:52px}
+.compg{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:stretch}
+.ccard{border-radius:8px;padding:42px 36px;border:1px solid var(--br2)}
+.cold{background:var(--b3);border-top:3px solid var(--c2)}
+.cnew{background:linear-gradient(135deg,rgba(94,234,212,.05) 0%,var(--b3) 60%);border-top:3px solid var(--t2)}
+.cvs{display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',Impact,sans-serif;font-size:1.4rem;color:var(--m);letter-spacing:.1em}
+.clbl2{font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px}
+.cold .clbl2{color:var(--c1)}
+.cnew .clbl2{color:var(--t2)}
+.citems{display:flex;flex-direction:column;gap:13px}
+.ci{display:flex;align-items:flex-start;gap:11px;font-size:.86rem;line-height:1.5}
+.cico{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;flex-shrink:0;margin-top:2px}
+.cold .cico{background:var(--cd);color:var(--c1)}
+.cnew .cico{background:var(--td);color:var(--t2)}
+.cold .ci{color:var(--m2)}
+.cnew .ci{color:var(--tx)}
+
+/* SERVICES */
+#services{background:var(--b)}
+.sh{margin-bottom:56px}
+.tb{margin-bottom:44px}
+.tblbl{font-size:.64rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--m);padding-bottom:14px;margin-bottom:18px;border-bottom:1px solid var(--br2)}
+.tgrid{display:grid;gap:12px}
+.c2{grid-template-columns:1fr 1fr}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c4{grid-template-columns:repeat(4,1fr)}
+.tier{background:var(--b3);border:1px solid var(--br2);border-radius:6px;padding:26px 22px;position:relative;transition:border-color .3s,transform .2s}
+.tier:hover{border-color:var(--br);transform:translateY(-2px)}
+.tier.ft{border-color:var(--br);background:linear-gradient(135deg,rgba(200,169,110,.07) 0%,var(--b3) 60%)}
+.tier.ft::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent)}
+.tbadge{position:absolute;top:-11px;left:18px;font-size:.59rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--b);background:var(--g);padding:3px 10px;border-radius:100px}
+.tpr{font-family:'Bebas Neue',Impact,sans-serif;font-size:2rem;color:var(--g);letter-spacing:.02em;line-height:1}
+.tpr.free{color:var(--t1)}
+.tper{font-size:.66rem;font-weight:500;color:var(--m);display:block;margin:3px 0 14px}
+.tnm{font-size:.77rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx);margin-bottom:9px}
+.tdesc{font-size:.81rem;color:var(--m2);line-height:1.65}
+
+/* FAQ */
+#faq{background:var(--b2)}
+.fh{text-align:center;margin-bottom:48px}
+.fl{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
+.fi{background:var(--b3);border:1px solid var(--br2);border-radius:3px;overflow:hidden;transition:border-color .3s}
+.fi:hover,.fi.open{border-color:var(--br)}
+.fq{display:flex;align-items:center;justify-content:space-between;padding:21px 26px;cursor:pointer;gap:24px;font-size:.88rem;font-weight:500;color:var(--tx)}
+.fico{width:27px;height:27px;border-radius:50%;border:1px solid var(--br2);display:flex;align-items:center;justify-content:center;color:var(--g);font-size:.95rem;flex-shrink:0;transition:transform .3s,background .2s}
+.fi.open .fico{transform:rotate(45deg);background:var(--gd)}
+.fa{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.fi.open .fa{max-height:340px}
+.fai{padding:0 26px 20px;font-size:.85rem;color:var(--m2);line-height:1.75;border-top:1px solid var(--br2);padding-top:14px}
+.fai strong{color:var(--tx);font-weight:500}
+
+/* CTA */
+#cta{padding:120px 48px;position:relative;overflow:hidden;background:var(--b);border-top:1px solid var(--br2);text-align:center}
+#cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(200,169,110,.08) 0%,transparent 65%);pointer-events:none}
+#cta::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(94,234,212,.06) 0%,transparent 65%);pointer-events:none}
+.ci2{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.ctag2{display:inline-flex;align-items:center;gap:8px;font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--t2);background:var(--td);border:1px solid var(--brt);border-radius:100px;padding:5px 14px;margin-bottom:22px}
+h2.ct{font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(3rem,5.5vw,5.5rem);letter-spacing:.02em;line-height:.95;margin-bottom:22px}
+h2.ct .g{color:var(--g)}
+.csub{font-size:1rem;color:var(--m2);max-width:520px;line-height:1.75;margin:0 auto 40px}
+.cbtns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;justify-content:center}
+.ccs{display:flex;gap:48px;flex-wrap:wrap;padding-top:36px;border-top:1px solid var(--br2);justify-content:center}
+.cci{text-align:center}
+.cci .ccl{font-size:.61rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--m);margin-bottom:5px}
+.cci a,.cci .ccv{font-size:.88rem;color:var(--tx);transition:color .2s;display:block}
+.cci a:hover{color:var(--g)}
+
+/* FOOTER */
+footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-items:center;justify-content:space-between}
+.flogo{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.05rem;letter-spacing:.08em;color:var(--m)}
+.flogo span{color:var(--g)}
+.flinks{display:flex;gap:28px}
+.flinks a{font-size:.71rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--m);transition:color .2s}
+.flinks a:hover{color:var(--g)}
+.fcopy{font-size:.7rem;color:var(--m)}
+
+/* ───── CREATIVES SECTION ───── */
+#creatives{background:var(--b);position:relative;overflow:hidden}
+#creatives::before{content:'';position:absolute;top:-100px;right:-150px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,.05) 0%,transparent 65%);pointer-events:none}
+.creatives-header{text-align:center;margin-bottom:60px;position:relative;z-index:1}
+.creatives-header .stag{margin-left:auto;margin-right:auto}
+.creatives-header h2{margin-left:auto;margin-right:auto}
+.cv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px;position:relative;z-index:1;max-width:920px;margin-left:auto;margin-right:auto}
+.cv-card{background:var(--b3);border:1px solid var(--br2);border-radius:8px;overflow:hidden;transition:border-color .3s,transform .25s ease;position:relative}
+.cv-card:hover{border-color:var(--br);transform:translateY(-3px)}
+.cv-media{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:var(--b4)}
+.cv-media video,.cv-media img{width:100%;height:100%;object-fit:cover;display:block}
+.cv-media video{cursor:pointer}
+/* Play indicator overlay for videos */
+.cv-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(200,169,110,.92);display:flex;align-items:center;justify-content:center;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:2;backdrop-filter:blur(4px);box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.cv-play::before{content:'';width:0;height:0;border-left:14px solid var(--b);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.cv-card.playing .cv-play{opacity:0;transform:translate(-50%,-50%) scale(.7)}
+.cv-info{padding:20px 22px}
+.cv-metric{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.35rem;color:var(--g);letter-spacing:.05em;line-height:1;display:block;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cv-metric-lbl{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--m2);margin-bottom:14px;display:block}
+.cv-tag{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--m);padding-top:14px;border-top:1px solid var(--br2);display:block}
+.cv-card.no-metric .cv-info{padding-top:18px;padding-bottom:18px}
+.cv-card.no-metric .cv-tag{padding-top:0;border-top:none;color:var(--g)}
+.cv-cta{text-align:center;margin-top:48px;margin-bottom:16px;position:relative;z-index:1}
+/* Static creatives subsection */
+.cv-static-divider{margin-top:80px;padding-top:60px;border-top:1px solid var(--br2);position:relative;z-index:1}
+.cv-static-header{text-align:center;margin-bottom:48px}
+.cv-static-header .stag{margin-left:auto;margin-right:auto;margin-bottom:14px}
+.cv-static-header h3{font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:.02em;line-height:1;color:var(--tx);margin-bottom:14px}
+.cv-static-header h3 .g{color:var(--g)}
+.cv-static-header p{font-size:.92rem;color:var(--m2);line-height:1.7;max-width:520px;margin:0 auto}
+.cv-static-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative;z-index:1}
+.cv-static-card{background:var(--b3);border:1px solid var(--br2);border-radius:6px;overflow:hidden;transition:border-color .3s,transform .25s}
+.cv-static-card:hover{border-color:var(--br);transform:translateY(-2px)}
+.cv-static-media{aspect-ratio:1/1;overflow:hidden;background:var(--b4)}
+.cv-static-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.cv-static-card:hover .cv-static-media img{transform:scale(1.04)}
+.cv-static-info{padding:14px 16px}
+.cv-static-tag{font-size:.55rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);line-height:1.4}
+
+/* TESTIMONIALS GRID — additional cards under main testimonial */
+.tcards-wrap{max-width:1100px;margin:0 auto;padding-top:60px;margin-top:60px;border-top:1px solid var(--br2)}
+.tcards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.tcard{background:var(--b3);border:1px solid var(--br2);border-radius:8px;padding:28px;transition:border-color .3s,transform .25s;text-align:left;position:relative}
+.tcard:hover{border-color:var(--br);transform:translateY(-2px)}
+.tcard-stars{font-size:.85rem;color:var(--g);letter-spacing:2px;margin-bottom:14px}
+.tcard-quote{font-size:.92rem;color:var(--tx);line-height:1.65;margin-bottom:18px;font-style:italic}
+.tcard-meta{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--br2)}
+.tcard-avatar{width:38px;height:38px;border-radius:50%;background:var(--gd);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',Impact,sans-serif;font-size:1rem;color:var(--g);letter-spacing:.04em;flex-shrink:0}
+.tcard-name{font-size:.82rem;font-weight:600;color:var(--tx);line-height:1.2}
+.tcard-role{font-size:.7rem;color:var(--m);margin-top:3px;letter-spacing:.04em}
+
+/* RESPONSIVE — MOBILE */
+@media(max-width:900px){
+  nav{padding:16px 24px}
+  .nav-l{display:none}
+  section,#hero,#testimonial,#cta{padding:80px 24px}
+  #trust{padding:22px 24px}
+  .ti{flex-wrap:wrap;gap:14px}
+  .tdiv{display:none}
+  .hi{grid-template-columns:1fr;gap:44px}
+  .ng{grid-template-columns:1fr 1fr}
+  .nc{padding:36px 24px;text-align:center}
+  .nc:nth-child(2){border-right:none}
+  .ps{grid-template-columns:1fr;gap:8px}
+  .sarr{display:none}
+  .cch{grid-template-columns:1fr;gap:18px;text-align:center;padding:22px 22px 18px}
+  .ckpis{justify-self:center;width:100%;max-width:340px;gap:8px}
+  .cbi{grid-template-columns:1fr;padding:0 22px 24px;gap:24px}
+  .cexpand{padding:14px 22px}
+  .compg{grid-template-columns:1fr;gap:16px}
+  .cvs{display:none}
+  .cnew{border-top:3px solid var(--t2)}
+  .c2,.c3,.c4{grid-template-columns:1fr}
+  .tblbl{text-align:center}
+  footer{flex-direction:column;gap:14px;text-align:center}
+  .flinks{justify-content:center;flex-wrap:wrap;gap:14px}
+  .ch{flex-direction:column;align-items:flex-start;gap:16px}
+
+  /* MOBILE CENTERING — section headers and intros */
+  h2.st{text-align:center}
+  .stag{margin-left:auto;margin-right:auto;display:inline-flex}
+  .ssub{text-align:center;margin-left:auto;margin-right:auto}
+
+  /* For sections with header on left (cases, services, about) — center on mobile */
+  .ch{text-align:center;align-items:center}
+  .ch>div{display:flex;flex-direction:column;align-items:center}
+  .sh{text-align:center}
+  .sh .stag,.sh .ssub{margin-left:auto;margin-right:auto}
+  .about-header{margin-bottom:32px}
+  .about-grid{grid-template-columns:1fr;gap:36px;margin-bottom:32px}
+  .about-text-block{text-align:left}
+  .about-cards{grid-template-columns:1fr 1fr}
+
+  /* HERO MOBILE — center everything in left column */
+  #hero .hi>div:first-child{text-align:center}
+  #hero .hbadge{margin-left:auto;margin-right:auto}
+  #hero .hpills{justify-content:center}
+  #hero .hbtns{justify-content:center}
+  #hero .htrust{justify-content:center}
+  #hero .hsub{margin-left:auto;margin-right:auto}
+  /* Hero card mobile centering */
+  .hcard{padding:24px;text-align:center}
+  .hclbl{justify-content:center;gap:14px}
+  .hplats{justify-content:center}
+  .hquote{text-align:center}
+  .hquote strong{text-align:center}
+
+  /* Trust bar header centered */
+  .tlbl{width:100%;text-align:center}
+  .titems{justify-content:center;width:100%}
+
+  /* CTA mobile — center everything */
+  #cta{text-align:center}
+  #cta .ctag2{margin-left:auto;margin-right:auto}
+  #cta h2.ct{text-align:center}
+  #cta .csub{text-align:center;margin-left:auto;margin-right:auto}
+  #cta .cbtns{justify-content:center}
+  #cta .ccs{justify-content:center;gap:24px}
+  #cta .cci{text-align:center}
+
+  /* Creatives mobile */
+  #creatives{padding:80px 24px}
+  .cv-grid{grid-template-columns:1fr;gap:14px}
+  .cv-static-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .cv-static-divider{margin-top:60px;padding-top:48px}
+  .cv-info{padding:18px 20px}
+  .cv-metric{font-size:1.25rem}
+
+  /* Testimonial grid mobile */
+  .tcards-wrap{padding-top:48px;margin-top:48px}
+  .tcards-grid{grid-template-columns:1fr;gap:14px}
+  .tcard{padding:24px}
+}
+
+/* Tighter mobile for very small screens */
+@media(max-width:480px){
+  .ng{grid-template-columns:1fr}
+  .nc{border-right:none;border-bottom:1px solid var(--br2)}
+  .nc:last-child{border-bottom:none}
+  .about-cards{grid-template-columns:1fr}
+  .ckv{font-size:1.35rem}
+  .ckl{font-size:.55rem}
+  .ckpis{gap:6px}
+  .cv-static-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ALEKSANDR <span>LI</span></div>
+  <ul class="nav-l">
+    <li><a href="#about">About</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#creatives">Creatives</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="https://calendar.app.google/tjZBaGKGAgntRVgn7" target="_blank" rel="noopener" class="nbtn">Book a Call</a>
+</nav>
+
+<!-- ───── HERO ───── -->
+<section id="hero">
+  <div class="hgrid"></div>
+  <div class="hi">
+    <div class="r">
+      <div class="hbadge"><span class="dot"></span>8+ Years · $25M+ Managed</div>
+      <h1 class="ht">Lower your CPA<br>with creatives built to <span class="g">scale.</span></h1>
+      <p class="hsub"><strong>Creative strategy and media buying</strong> — connected by data, built as one system. $25M+ in ad spend managed across the USA, Europe, CIS, and Canada.</p>
+      <div class="hpills">
+        <div class="pill"><span class="pdot"></span>Data-Driven Creative Strategy</div>
+        <div class="pill"><span class="pdot"></span>Multi-Platform Media Buying</div>
+        <div class="pill"><span class="pdot"></span>Full-Funnel Architecture</div>
+      </div>
+      <div class="hbtns">
+        <a href="https://calendar.app.google/tjZBaGKGAgntRVgn7" target="_blank" rel="noopener" class="bg">Book a Free Call →</a>
+        <a href="#cases" class="bgh">View Case Studies</a>
+      </div>
+      <div class="htrust">
+        <span class="htrust-stars">★★★★★</span>
+        <span class="htrust-text">Trusted by brands managing <strong>$20K–$3M/month</strong> in ad spend</span>
+      </div>
+    </div>
+    <div class="r d1">
+      <div class="hcard">
+        <div class="hclbl"><span>Performance Stats</span><span class="live">Verified</span></div>
+        <div class="hsgrid">
+          <div class="hstat"><span class="hsv">$25M+</span><span class="hsl">Total Spend</span></div>
+          <div class="hstat hl"><span class="hsv">$3M</span><span class="hsl">Peak / Month</span></div>
+          <div class="hstat hl"><span class="hsv">2,600%</span><span class="hsl">Peak ROAS</span></div>
+          <div class="hstat"><span class="hsv">100K+</span><span class="hsl">Leads / Month</span></div>
+        </div>
+        <div class="hplats">
+          <span class="pp">Meta</span><span class="pp">TikTok</span><span class="pp">Google</span>
+          <span class="pp">Snapchat</span><span class="pp">YouTube</span><span class="pp">Outbrain</span>
+        </div>
+        <div class="hquote">"Aleksandr is an excellent Media Buyer as well as Creative Strategist — a rare combination."<strong>USA ACP Provider · $20M+ Budget</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── ABOUT ───── -->
+<section id="about">
+  <div class="mx">
+    <div class="about-header r">
+      <div class="stag">About Me</div>
+      <h2 class="st">Two skill sets,<br><span class="t">one operator.</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text-block r">
+        <p>I run paid media the same way performance teams build product — <span class="key">data-first, evidence-based, every decision testable.</span> No "creative intuition," no "trust me, this'll work." Audience research, structured creative testing, dynamic budget allocation against live CPA.</p>
+        <p>I started in 2017, built my own social presence, published case studies, and took on first clients through word of mouth. Over 8 years the work scaled: from local businesses in Eastern Europe to <strong>$3M/month across 7 platforms in the USA</strong>.</p>
+        <p>The last 4–5 years I've focused heavily on creative strategy — because that's where the real leverage shifted. As Meta, TikTok, and Google moved targeting control to their algorithms, <strong>the creative became the targeting</strong>. The hook, the message, the format now determine who sees your ad. Most media buyers haven't caught up to this yet.</p>
+        <p>I don't make promises before I understand your business. If paid media can move the needle for you — I'll tell you exactly how. If it can't — I'll tell you that too.</p>
+      </div>
+      <div class="about-cards r d1">
+        <div class="acard">
+          <div class="acard-icon">CS</div>
+          <h4>Creative Strategy</h4>
+          <p>Audience research, offer psychology, brief writing, creative frameworks, competitive analysis, performance analytics.</p>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">MB</div>
+          <h4>Media Buying</h4>
+          <p>Direct buying across Meta, TikTok, Google, Snapchat, YouTube. Dynamic budget allocation vs. live CPA.</p>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">FF</div>
+          <h4>Full-Funnel</h4>
+          <p>TOF/MOF/BOF architecture, budget allocation across channels, scaling systems for lead gen and e-commerce.</p>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">TM</div>
+          <h4>Team Management</h4>
+          <p>Coordinating designers, editors, media buyers, and UGC creators from brief to launch and analysis.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-tags r">
+      <span class="atag">Meta Ads</span>
+      <span class="atag">TikTok Ads</span>
+      <span class="atag">Google Ads</span>
+      <span class="atag">Creative Strategy</span>
+      <span class="atag">Lead Gen</span>
+      <span class="atag">DTC E-commerce</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───── PROCESS ───── -->
+<section id="process">
+  <div class="mx">
+    <div class="ph r">
+      <div class="stag">How It Works</div>
+      <h2 class="st">A clear path from<br>discovery to <span class="g">scale.</span></h2>
+      <p class="ssub">A structured process that turns your paid media into a scalable, predictable growth system — without the agency over-promising.</p>
+    </div>
+    <div class="ps">
+      <div class="step r">
+        <div class="snum s0">Start Here</div>
+        <div class="stitle">Discovery Call</div>
+        <div class="sdesc">A 30-minute conversation about your current setup, goals, and where the real opportunities are. No pitch.</div>
+        <div class="schecks">
+          <div class="sc">Honest situation audit</div>
+          <div class="sc">Clear next steps</div>
+        </div>
+        <div class="sarr">→</div>
+      </div>
+      <div class="step r d1">
+        <div class="snum">Step 2</div>
+        <div class="stitle">Strategy Blueprint</div>
+        <div class="sdesc">Audience research, competitor analysis, and a creative + media plan tailored to your business model and growth targets.</div>
+        <div class="schecks">
+          <div class="sc">Creative framework design</div>
+          <div class="sc">Personalised media plan</div>
+        </div>
+        <div class="sarr">→</div>
+      </div>
+      <div class="step r d2">
+        <div class="snum">Step 3</div>
+        <div class="stitle">Launch &amp; Test</div>
+        <div class="sdesc">Account audit, structured creative testing, and dynamic budget allocation across platforms vs. live CPA.</div>
+        <div class="schecks">
+          <div class="sc">Account audit &amp; setup</div>
+          <div class="sc">Creative testing framework</div>
+        </div>
+        <div class="sarr">→</div>
+      </div>
+      <div class="step r d3">
+        <div class="snum">Step 4</div>
+        <div class="stitle">Scale</div>
+        <div class="sdesc">Scale winners, cut losers, expand across platforms, and compound growth month over month.</div>
+        <div class="schecks">
+          <div class="sc">Multi-platform scaling</div>
+          <div class="sc">Compounding growth</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CASE STUDIES ───── -->
+<section id="cases">
+  <div class="mx">
+    <div class="ch r">
+      <div>
+        <div class="stag">Case Studies</div>
+        <h2 class="st">Real numbers from<br><span class="g">real ad accounts.</span></h2>
+      </div>
+    </div>
+    <div class="cl">
+
+      <div class="cc r"><div class="cch" onclick="tc(this)">
+        <div><div class="ctag">Lead Gen · USA · 4 Years · Meta · TikTok · Snapchat · Google · YouTube</div><div class="cname">USA ACP Program Provider — $20M+</div></div>
+        <div class="ckpis">
+          <div><span class="ckv">$20M+</span><span class="ckl">Total Spend</span></div>
+          <div><span class="ckv t">100K+</span><span class="ckl">Leads/Month</span></div>
+          <div><span class="ckv t">&lt;$30</span><span class="ckl">Peak CPA</span></div>
+        </div>
+        </div><div class="cb"><div class="cbi">
+        <div>
+          <p>Client was spending ~$150K/month with <strong>zero creative system</strong>. All decisions made on gut feel — no testing framework, no repeatable path to scale.</p>
+          <p>Built the entire creative strategy process from scratch: audience research, brief writing, UGC sourcing, creative analytics with Motion, <strong>dynamic budget allocation across 7 platforms</strong> vs. live CPA. Top 8 creatives generated $3.5M+ combined lifetime spend.</p>
+          <a href="https://tally.so/r/ODj89M" target="_blank" rel="noopener" class="clink">Request Full Case Study →</a>
+        </div>
+        <table class="ctbl">
+          <tr><td>Total spend</td><td>$20M+</td></tr>
+          <tr><td>Peak monthly spend</td><td>$3M / month</td></tr>
+          <tr><td>Peak registrations</td><td>100K+ / month</td></tr>
+          <tr><td>CPA at peak</td><td>&lt;$30</td></tr>
+          <tr><td>Top creative (lifetime)</td><td>$896K</td></tr>
+          <tr><td>Platforms</td><td>7 platforms</td></tr>
+          <tr><td>Duration</td><td>4 years (ongoing)</td></tr>
+        </table>
+      </div></div><div class="cexpand" onclick="tc(this)"><span>View case</span><span class="cexpand-arrow">↓</span></div></div>
+
+      <div class="cc r d1"><div class="cch" onclick="tc(this)">
+        <div><div class="ctag">Lead Gen · EU · 3+ Years · Meta · Google · YouTube · 40+ Countries</div><div class="cname">European Immigration Agency — 1,200% ROAS</div></div>
+        <div class="ckpis">
+          <div><span class="ckv t">1,200%</span><span class="ckl">ROAS</span></div>
+          <div><span class="ckv">~800</span><span class="ckl">Leads/Month</span></div>
+          <div><span class="ckv">$10</span><span class="ckl">CPL</span></div>
+        </div>
+        </div><div class="cb"><div class="cbi">
+        <div>
+          <p>Immigration is a <strong>3-month+ decision cycle</strong> — standard short-funnel approaches don't work. Built a dedicated MOF layer with testimonials, success stories, and educational content to keep prospects warm over months without burning budget on cold reach.</p>
+          <p>Multilingual geo-targeting across 40+ countries with separate messaging per immigration motivation: jobs, education, legal security, retirement.</p>
+          <a href="https://tally.so/r/ODj89M" target="_blank" rel="noopener" class="clink">Request Full Case Study →</a>
+        </div>
+        <table class="ctbl">
+          <tr><td>ROAS</td><td>1,200%</td></tr>
+          <tr><td>MER</td><td>500%</td></tr>
+          <tr><td>Leads / month avg</td><td>~800</td></tr>
+          <tr><td>Cost per lead</td><td>$10 first-contact</td></tr>
+          <tr><td>Countries reached</td><td>40+</td></tr>
+          <tr><td>Revenue growth</td><td>3×</td></tr>
+        </table>
+      </div></div><div class="cexpand" onclick="tc(this)"><span>View case</span><span class="cexpand-arrow">↓</span></div></div>
+
+      <div class="cc r d2"><div class="cch" onclick="tc(this)">
+        <div><div class="ctag">Luxury E-commerce · EU · USA · CIS · Meta Ads · AOV up to $40K</div><div class="cname">Luxury Board Game Brand — 2,600% ROAS</div></div>
+        <div class="ckpis">
+          <div><span class="ckv t">2,600%</span><span class="ckl">Peak ROAS</span></div>
+          <div><span class="ckv">$100K+</span><span class="ckl">Monthly Revenue</span></div>
+          <div><span class="ckv">$40K</span><span class="ckl">Max AOV</span></div>
+        </div>
+        </div><div class="cb"><div class="cbi">
+        <div>
+          <p>Selling a <strong>$40,000 chess set</strong> requires a completely different buyer psychology. Repositioned messaging from product features → <strong>status &amp; identity</strong>. Built a retargeting system designed for months-long luxury nurturing across EU, USA, and CIS simultaneously.</p>
+          <a href="https://tally.so/r/ODj89M" target="_blank" rel="noopener" class="clink">Request Full Case Study →</a>
+        </div>
+        <table class="ctbl">
+          <tr><td>Peak ROAS</td><td>2,600%</td></tr>
+          <tr><td>Monthly revenue</td><td>$100K+</td></tr>
+          <tr><td>Max AOV per unit</td><td>$40,000</td></tr>
+          <tr><td>Markets</td><td>Europe · USA · CIS</td></tr>
+          <tr><td>Duration</td><td>2+ years</td></tr>
+        </table>
+      </div></div><div class="cexpand" onclick="tc(this)"><span>View case</span><span class="cexpand-arrow">↓</span></div></div>
+
+      <div class="cc r d3"><div class="cch" onclick="tc(this)">
+        <div><div class="ctag">Online Education · 3+ Years · Meta · Instagram</div><div class="cname">Online Fitness School — $100K+/Month</div></div>
+        <div class="ckpis">
+          <div><span class="ckv">$100K+</span><span class="ckl">Monthly Revenue</span></div>
+          <div><span class="ckv t">70K+</span><span class="ckl">Leads</span></div>
+          <div><span class="ckv">$3M+</span><span class="ckl">Total Revenue</span></div>
+        </div>
+        </div><div class="cb"><div class="cbi">
+        <div>
+          <p>From <strong>$0 in paid revenue</strong> to $100K+/month. Built full paid infrastructure from zero — pixel setup, full-funnel architecture, lookalike audiences, UGC + founder video creative mix across 90+ product launches. Grew Instagram from 400K to <strong>750K+ followers</strong> via paid simultaneously.</p>
+          <a href="https://tally.so/r/ODj89M" target="_blank" rel="noopener" class="clink">Request Full Case Study →</a>
+        </div>
+        <table class="ctbl">
+          <tr><td>Monthly revenue (peak)</td><td>$100K+</td></tr>
+          <tr><td>Total revenue</td><td>$3M+</td></tr>
+          <tr><td>Leads generated</td><td>70K+</td></tr>
+          <tr><td>Ad impressions</td><td>400M+</td></tr>
+          <tr><td>Instagram growth</td><td>400K → 750K+</td></tr>
+        </table>
+      </div></div><div class="cexpand" onclick="tc(this)"><span>View case</span><span class="cexpand-arrow">↓</span></div></div>
+
+      <div class="cc r"><div class="cch" onclick="tc(this)">
+        <div><div class="ctag">Medical Lead Gen · 4 Years · Meta Ads · Hyper-local · 5 Locations</div><div class="cname">Chain of Medical Clinics — 11,500+ Leads</div></div>
+        <div class="ckpis">
+          <div><span class="ckv t">11,500+</span><span class="ckl">Total Leads</span></div>
+          <div><span class="ckv">~$10</span><span class="ckl">CPL</span></div>
+          <div><span class="ckv t">40%+</span><span class="ckl">Lead-to-Consult</span></div>
+        </div>
+        </div><div class="cb"><div class="cbi">
+        <div>
+          <p>I trained in medicine before paid media, so working with clinics is familiar territory — I understand the pain points patients walk in with, the language doctors use, and the trust signals that matter in healthcare marketing. <strong>That context shaped every creative decision in this campaign.</strong></p>
+          <p>5 pain relief and rehabilitation centers needed steady consultation bookings within a strict <strong>1.5-mile radius</strong> per center. Tiny audience pools, constant fatigue risk, no room to scale aggressively.</p>
+          <p>Solved through continuous creative rotation and age-based splits: direct founder-led ads for 50+, interactive quizzes for 25–45. <strong>Pain-first messaging</strong> outperformed clinic-feature ads every time.</p>
+          <a href="https://tally.so/r/ODj89M" target="_blank" rel="noopener" class="clink">Request Full Case Study →</a>
+        </div>
+        <table class="ctbl">
+          <tr><td>Total leads</td><td>11,500+</td></tr>
+          <tr><td>Cost per lead</td><td>~$10</td></tr>
+          <tr><td>Lead-to-consultation</td><td>40%+</td></tr>
+          <tr><td>Avg leads / month</td><td>250+</td></tr>
+          <tr><td>Social growth</td><td>2K → 13K+ followers</td></tr>
+          <tr><td>Duration</td><td>4 years</td></tr>
+        </table>
+      </div></div><div class="cexpand" onclick="tc(this)"><span>View case</span><span class="cexpand-arrow">↓</span></div></div>
+
+    </div>
+    <div class="ccta r">
+      <a href="https://tally.so/r/ODj89M" target="_blank" rel="noopener" class="bg">Request Full Case Studies →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CREATIVES ───── -->
+<section id="creatives">
+  <div class="mx">
+    <div class="creatives-header r">
+      <div class="stag">Creative Portfolio</div>
+      <h2 class="st">Top creatives that<br><span class="g">delivered.</span></h2>
+      <p class="ssub" style="margin-left:auto;margin-right:auto;text-align:center">A selection of high-performing video and static creatives across lead gen, telecom, health & wellness, SaaS, and e-commerce. Hover any video to play.</p>
+    </div>
+
+    <!-- Video grid 3x3 -->
+    <div class="cv-grid">
+      <div class="cv-card r">
+        <div class="cv-media">
+          <video src="videos/v01_acp_705k.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="cv-play"></div>
+        </div>
+        <div class="cv-info">
+          <span class="cv-metric">$705K</span>
+          <span class="cv-metric-lbl">Lifetime Spend</span>
+          <span class="cv-tag">UGC Mix · Lead Gen</span>
+        </div>
+      </div>
+
+      <div class="cv-card r d1">
+        <div class="cv-media">
+          <video src="videos/v02_acp_1_2m.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="cv-play"></div>
+        </div>
+        <div class="cv-info">
+          <span class="cv-metric">$1.2M</span>
+          <span class="cv-metric-lbl">Lifetime Spend</span>
+          <span class="cv-tag">UGC Unboxing · Lead Gen</span>
+        </div>
+      </div>
+
+      <div class="cv-card r d2">
+        <div class="cv-media">
+          <video src="videos/v03_acp_349k.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="cv-play"></div>
+        </div>
+        <div class="cv-info">
+          <span class="cv-metric">$349K</span>
+          <span class="cv-metric-lbl">Lifetime Spend</span>
+          <span class="cv-tag">UGC Dialogue · Lead Gen</span>
+        </div>
+      </div>
+
+      <div class="cv-card r">
+        <div class="cv-media">
+          <video src="videos/v04_acp_500k.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="cv-play"></div>
+        </div>
+        <div class="cv-info">
+          <span class="cv-metric">$500K</span>
+          <span class="cv-metric-lbl">Lifetime Spend</span>
+          <span class="cv-tag">UGC Educational · Lead Gen</span>
+        </div>
+      </div>
+
+      <div class="cv-card text-metric r d1">
+        <div class="cv-media">
+          <video src="videos/v05_mingle.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="cv-play"></div>
+        </div>
+        <div class="cv-info">
+          <span class="cv-metric">MINGLE MOBILE</span>
+          <span class="cv-metric-lbl">Telecom Brand</span>
+          <span class="cv-tag">Hook on Paper · UGC</span>
+        </div>
+      </div>
+
+      <div class="cv-card text-metric r d2">
+        <div class="cv-media">
+          <video src="videos/v06_glp1.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="cv-play"></div>
+        </div>
+        <div class="cv-info">
+          <span class="cv-metric">SEMAGLUTIDE</span>
+          <span class="cv-metric-lbl">Direct Response</span>
+          <span class="cv-tag">UGC · Health & Wellness</span>
+        </div>
+      </div>
+
+      <div class="cv-card text-metric r">
+        <div class="cv-media">
+          <video src="videos/v07_iron.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="cv-play"></div>
+        </div>
+        <div class="cv-info">
+          <span class="cv-metric">T-TREATMENT</span>
+          <span class="cv-metric-lbl">Direct Response</span>
+          <span class="cv-tag">UGC · Men's Health</span>
+        </div>
+      </div>
+
+      <div class="cv-card text-metric r d1">
+        <div class="cv-media">
+          <video src="videos/v08_zigpoll.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="cv-play"></div>
+        </div>
+        <div class="cv-info">
+          <span class="cv-metric">TOP PERFORMER</span>
+          <span class="cv-metric-lbl">Featured Ad</span>
+          <span class="cv-tag">UGC · SaaS</span>
+        </div>
+      </div>
+
+      <div class="cv-card text-metric r d2">
+        <div class="cv-media">
+          <video src="videos/v09_titantrek.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="cv-play"></div>
+        </div>
+        <div class="cv-info">
+          <span class="cv-metric">TITANTREK</span>
+          <span class="cv-metric-lbl">Travel Gear</span>
+          <span class="cv-tag">UGC Use Case</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-cta r">
+      <a href="https://tally.so/r/XxROdz" target="_blank" rel="noopener" class="bg">View Full Creative Library →</a>
+    </div>
+
+    <!-- Static creatives -->
+    <div class="cv-static-divider">
+      <div class="cv-static-header r">
+        <div class="stag">Static Creatives</div>
+        <h3>Beyond <span class="g">video.</span></h3>
+        <p>Static formats across luxury e-commerce, telecom, SaaS, and health verticals.</p>
+      </div>
+
+      <div class="cv-static-grid">
+        <div class="cv-static-card r">
+          <div class="cv-static-media"><img src="images/s01_kadun.jpg" alt="Kadun Chess static creative" loading="lazy"></div>
+          <div class="cv-static-info"><span class="cv-static-tag">Luxury E-commerce</span></div>
+        </div>
+        <div class="cv-static-card r d1">
+          <div class="cv-static-media"><img src="images/s02_mingle.jpg" alt="Mingle Mobile static creative" loading="lazy"></div>
+          <div class="cv-static-info"><span class="cv-static-tag">Telecom</span></div>
+        </div>
+        <div class="cv-static-card r d2">
+          <div class="cv-static-media"><img src="images/s03_zigpoll.jpg" alt="Zigpoll static creative" loading="lazy"></div>
+          <div class="cv-static-info"><span class="cv-static-tag">SaaS · Tweet Format</span></div>
+        </div>
+        <div class="cv-static-card r d3">
+          <div class="cv-static-media"><img src="images/s04_glp1.jpg" alt="Semaglutide static creative" loading="lazy"></div>
+          <div class="cv-static-info"><span class="cv-static-tag">Health & Wellness</span></div>
+        </div>
+        <div class="cv-static-card r">
+          <div class="cv-static-media"><img src="images/s05_iron.jpg" alt="Iron Remedy MD static creative" loading="lazy"></div>
+          <div class="cv-static-info"><span class="cv-static-tag">Men's Health</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── TESTIMONIAL ───── -->
+<div id="testimonial">
+  <div class="tw r">
+    <div class="stars">★★★★★</div>
+    <div class="tq">"Aleksandr is an excellent Media Buyer as well as <span class="g">Creative Strategist</span> — a rare combination — not just for TikTok but also Facebook and Snapchat ads. He understands how the paid social platforms work and how to create the best account structures. You can fully rely on him to do what's best for your ad accounts."</div>
+    <div class="tsrc">USA ACP Provider · $20M+ Budget · Verified Client</div>
+  </div>
+
+  <div class="tcards-wrap r">
+    <div class="tcards-grid">
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-quote">"In 6 years of running my business I worked with more than 20 paid media specialists. Aleksandr is the only one who delivered real results. Came through a referral and never regretted it. Simply the best at what he does."</div>
+        <div class="tcard-meta">
+          <div class="tcard-avatar">JM</div>
+          <div>
+            <div class="tcard-name">Julia M.</div>
+            <div class="tcard-role">Business Owner · 6 years in business</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-quote">"Read his article late one night, messaged him, and within 3 minutes had a clear plan. He laid out the audience map and strategy before we even started. Paid the deposit and within 24 hours leads started coming in. They haven't stopped since."</div>
+        <div class="tcard-meta">
+          <div class="tcard-avatar">AD</div>
+          <div>
+            <div class="tcard-name">Anthony D.</div>
+            <div class="tcard-role">Lead Generation Client</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-quote">"I run a functional training studio. Before Aleksandr, I'd burned through budgets without understanding what, where, why, or how much I was spending. In just one month, he brought clear creatives for Instagram and Facebook, structured reporting on leads, and clear recommendations. Lead quality improved and they started converting to sales."</div>
+        <div class="tcard-meta">
+          <div class="tcard-avatar">SV</div>
+          <div>
+            <div class="tcard-name">Stan V.</div>
+            <div class="tcard-role">Functional Training Studio</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-quote">"Post reach grew 15× in just a few months. The team consistently finds creative angles for our young audience while keeping content sales-driven. Engagement and active community management included."</div>
+        <div class="tcard-meta">
+          <div class="tcard-avatar">EB</div>
+          <div>
+            <div class="tcard-name">Elena B.</div>
+            <div class="tcard-role">Children's Apparel · E-commerce</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── COMPARISON ───── -->
+<section id="comparison">
+  <div class="mx">
+    <div class="comph r">
+      <div class="stag">The Difference</div>
+      <h2 class="st">What I do <span class="t">differently</span><br>from most agencies.</h2>
+    </div>
+    <div class="compg r">
+      <div class="ccard cold">
+        <div class="clbl2">Most Agencies</div>
+        <div class="citems">
+          <div class="ci"><div class="cico">✕</div>Separate media buyer and creative team — no shared context</div>
+          <div class="ci"><div class="cico">✕</div>Creatives made by gut feel, not audience research</div>
+          <div class="ci"><div class="cico">✕</div>Over-promising before understanding your business</div>
+          <div class="ci"><div class="cico">✕</div>Same creatives running for months — no testing framework</div>
+          <div class="ci"><div class="cico">✕</div>Set-and-forget budgets across platforms</div>
+        </div>
+      </div>
+      <div class="cvs">VS</div>
+      <div class="ccard cnew">
+        <div class="clbl2">My Approach</div>
+        <div class="citems">
+          <div class="ci"><div class="cico">✓</div>Media buying and creative strategy built as one system</div>
+          <div class="ci"><div class="cico">✓</div>Every brief backed by audience research and competitor data</div>
+          <div class="ci"><div class="cico">✓</div>Honest diagnosis first — no promises before understanding your business</div>
+          <div class="ci"><div class="cico">✓</div>100+ creatives tested monthly — structured, repeatable framework</div>
+          <div class="ci"><div class="cico">✓</div>Dynamic budget allocation across platforms vs. live CPA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── SERVICES ───── -->
+<section id="services">
+  <div class="mx">
+    <div class="sh r">
+      <div class="stag">Services &amp; Pricing</div>
+      <h2 class="st">Pick your<br><span class="g">entry point.</span></h2>
+      <p class="ssub">Start with a free call or a low-commitment audit. Scale to a full retainer when you're ready. Every engagement begins with understanding your business first.</p>
+    </div>
+    <div class="tb r">
+      <div class="tblbl">Start Here — No Commitment Required</div>
+      <div class="tgrid c3">
+        <div class="tier">
+          <div class="tpr free">Free</div>
+          <span class="tper">No strings attached</span>
+          <div class="tnm">30-Min Strategy Call</div>
+          <div class="tdesc">I review your current paid media situation and tell you exactly what I see. No pitch, no pressure. Just an honest read on where you are and what's possible.</div>
+        </div>
+        <div class="tier">
+          <div class="tpr">$350</div>
+          <span class="tper">One-time · 3–5 days</span>
+          <div class="tnm">Paid Media Audit</div>
+          <div class="tdesc">Full account review: campaign structure, creative performance, funnel gaps, budget leaks. You get a document with specific action points you can act on immediately.</div>
+        </div>
+        <div class="tier">
+          <div class="tpr">$299</div>
+          <span class="tper">One-time · 2–3 days</span>
+          <div class="tnm">Creative Audit</div>
+          <div class="tdesc">I analyse your current creatives: why they're underperforming, what psychological levers are missing, and exactly what to test next.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tb r">
+      <div class="tblbl">Monthly Retainers</div>
+      <div class="tgrid c4">
+        <div class="tier">
+          <div class="tpr">$2,500–3,500</div>
+          <span class="tper">Per month</span>
+          <div class="tnm">Media Buying</div>
+          <div class="tdesc">Account management across Meta, TikTok, Google. Daily monitoring + optimisation. Weekly async reporting. Creatives provided by your team.</div>
+        </div>
+        <div class="tier">
+          <div class="tpr">$2,000–3,000</div>
+          <span class="tper">Per month</span>
+          <div class="tnm">Creative Strategy</div>
+          <div class="tdesc">20 creative concepts/month with full briefs. Competitor research. Creative analytics and winner identification. For brands with their own media buyers.</div>
+        </div>
+        <div class="tier ft">
+          <div class="tbadge">Recommended</div>
+          <div class="tpr">$4,500–6,000</div>
+          <span class="tper">Per month</span>
+          <div class="tnm">MB + Creative Strategy</div>
+          <div class="tdesc">The full system. Creative strategy and media buying connected — the combo that generates results like the case studies above.</div>
+        </div>
+        <div class="tier">
+          <div class="tpr">Custom</div>
+          <span class="tper">On request</span>
+          <div class="tnm">% of Spend</div>
+          <div class="tdesc">For accounts with $50K+/month ad spend. Pricing tied to managed spend (10–15%). Multi-platform or complex account structures.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FAQ ───── -->
+<section id="faq">
+  <div class="mx">
+    <div class="fh r">
+      <div class="stag">FAQ</div>
+      <h2 class="st">Frequently<br><span class="g">asked questions.</span></h2>
+    </div>
+    <div class="fl">
+      <div class="fi r"><div class="fq" onclick="tf(this)">What type of businesses do you work with?<div class="fico">+</div></div><div class="fa"><div class="fai">I work primarily with DTC e-commerce brands, lead generation businesses, online education, and high-ticket services. Verticals include health & wellness, telecom, SaaS, immigration, travel & lifestyle goods, and luxury / high-ticket products. The common thread: brands with serious ad budgets ($20K+/month) that want a real system, not just someone to "run ads."</div></div></div>
+
+      <div class="fi r d1"><div class="fq" onclick="tf(this)">What ad spend do I need to work with you?<div class="fico">+</div></div><div class="fa"><div class="fai">For monthly retainers, the recommended minimum is <strong>$20K+/month</strong> in ad spend — below that, the math rarely works for either of us. For audits ($299–$350), there's no minimum — these are useful for any brand running ads, regardless of budget size.</div></div></div>
+
+      <div class="fi r d2"><div class="fq" onclick="tf(this)">Do I need to commit to a long-term contract?<div class="fico">+</div></div><div class="fa"><div class="fai">Retainers are <strong>month-to-month with 30-day notice</strong>. No 3-month or 6-month lock-ins. That said, paid media isn't a 30-day game — meaningful scaling happens in months 2–4. Most clients stay 6+ months because the system compounds. The flexibility is there if it's not working — but in my experience, when expectations are aligned upfront, it's rarely needed.</div></div></div>
+
+      <div class="fi r d3"><div class="fq" onclick="tf(this)">How long until I see results?<div class="fico">+</div></div><div class="fa"><div class="fai">Honest answer: it depends on where you start. If you have an existing account with stable creatives, I can usually move CPA in <strong>2–4 weeks</strong>. If we're launching from zero — building creative pipelines, testing frameworks, audience research — meaningful results take <strong>6–8 weeks</strong>. Anyone promising overnight results is either lying or working with very low standards for "results."</div></div></div>
+
+      <div class="fi r d3"><div class="fq" onclick="tf(this)">Do I need to provide creatives or do you make them?<div class="fico">+</div></div><div class="fa"><div class="fai">Both options exist. The <strong>Media Buying</strong> retainer assumes you provide creatives. The <strong>MB + Creative Strategy</strong> retainer includes the full creative pipeline — concepts, briefs, and coordination with designers/editors/UGC creators (your team or mine). Most clients find the combined option drives meaningfully better results because the creative is built specifically to perform in the ad environment.</div></div></div>
+
+      <div class="fi r"><div class="fq" onclick="tf(this)">What makes you different from agencies or other freelancers?<div class="fico">+</div></div><div class="fa"><div class="fai">Most media buyers don't build creatives, and most creative strategists don't buy media. <strong>I do both</strong> — which means the creative strategy is built specifically to perform in the platform environment I'm managing. No handoff delays, no context loss, no finger-pointing when results aren't there. One system, one person accountable.</div></div></div>
+
+      <div class="fi r d1"><div class="fq" onclick="tf(this)">How do you measure success?<div class="fico">+</div></div><div class="fa"><div class="fai">Primary KPIs are agreed upfront: CPA, ROAS, or CPL depending on the business model. I track intermediate metrics (CPC, CTR, hook rate, scroll-stop rate) to diagnose creative performance. <strong>Winning creatives must also be scalable</strong> — I don't call something a winner if it only works at $200/day.</div></div></div>
+
+      <div class="fi r d2"><div class="fq" onclick="tf(this)">Do you sign NDAs and protect client data?<div class="fico">+</div></div><div class="fa"><div class="fai">Yes — happy to sign NDAs before we share any sensitive numbers or strategy details. All client work is treated as confidential by default. Case studies on this site reference specific results but do not name brands without written permission.</div></div></div>
+
+      <div class="fi r d3"><div class="fq" onclick="tf(this)">What happens after the audit — am I obligated to continue?<div class="fico">+</div></div><div class="fa"><div class="fai">Zero obligation. The audit is a standalone deliverable — you get a document with specific action points and you can implement them yourself, with your existing team, or with another freelancer. Most clients who do continue do it because the audit demonstrated where the gaps are. No retainer pressure either way.</div></div></div>
+
+      <div class="fi r"><div class="fq" onclick="tf(this)">Can you take on new clients right now?<div class="fico">+</div></div><div class="fa"><div class="fai">I take on a limited number of retainer clients to maintain quality. Book a discovery call to discuss current availability and timelines. <strong>Audits and one-time projects</strong> are generally available within 1–2 weeks.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CTA ───── -->
+<section id="cta">
+  <div class="ci2">
+    <div class="ctag2 r"><span class="dot"></span>Limited Availability</div>
+    <h2 class="ct r d1">Ready to scale<br><span class="g">your paid media?</span></h2>
+    <p class="csub r d2">Book a free 30-minute discovery call. I'll review your current setup and tell you exactly what I see. No pitch, no pressure.</p>
+    <div class="cbtns r d3">
+      <a href="https://calendar.app.google/tjZBaGKGAgntRVgn7" target="_blank" rel="noopener" class="bg">📅 Book a Free Call</a>
+      <a href="https://linkedin.com/in/leks-li" target="_blank" class="bgh">LinkedIn →</a>
+    </div>
+    <div class="ccs r">
+      <div class="cci"><div class="ccl">Email</div><a href="mailto:leks.li.work@gmail.com" class="ccv">leks.li.work@gmail.com</a></div>
+      <div class="cci"><div class="ccl">LinkedIn</div><a href="https://linkedin.com/in/leks-li" target="_blank" class="ccv">linkedin.com/in/leks-li</a></div>
+      <div class="cci"><div class="ccl">Location</div><div class="ccv">Europe · GMT+1</div></div>
+      <div class="cci"><div class="ccl">Response Time</div><div class="ccv">Within 24 hours</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">ALEKSANDR <span>LI</span></div>
+  <div class="flinks">
+    <a href="#about">About</a>
+    <a href="#cases">Cases</a>
+    <a href="#creatives">Creatives</a>
+    <a href="#services">Services</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="fcopy">© <span id="yr">2026</span> Aleksandr Li</div>
+</footer>
+
+<script>
+const els=document.querySelectorAll('.r');
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');obs.unobserve(x.target)}})},{threshold:.08});
+els.forEach(el=>obs.observe(el));
+setTimeout(()=>{document.querySelectorAll('#hero .r').forEach(el=>el.classList.add('on'))},80);
+function tc(h){const c=h.closest('.cc'),o=c.classList.contains('open');document.querySelectorAll('.cc.open').forEach(x=>x.classList.remove('open'));if(!o)c.classList.add('open')}
+function tf(q){q.parentElement.classList.toggle('open')}
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ═══ ANIMATIONS ═══ */
+const hasHover=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+/* 1. Hero spotlight — follows cursor */
+(function(){
+  const hero=document.getElementById('hero');
+  if(!hero||!hasHover)return;
+  const sp=document.createElement('div');
+  sp.className='spotlight';
+  hero.appendChild(sp);
+  let raf=null;
+  hero.addEventListener('mousemove',e=>{
+    if(raf)cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(()=>{
+      const r=hero.getBoundingClientRect();
+      sp.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      sp.style.setProperty('--my',(e.clientY-r.top)+'px');
+    });
+  });
+  hero.addEventListener('mouseenter',()=>sp.classList.add('active'));
+  hero.addEventListener('mouseleave',()=>sp.classList.remove('active'));
+})();
+
+/* 2. Animated counters — parse number, preserve prefix/suffix */
+function animateCounter(el){
+  if(el.dataset.animated)return;
+  el.dataset.animated='1';
+  const original=el.textContent.trim();
+  const m=original.match(/^(\D*?)([\d,]+(?:\.\d+)?)(.*)$/);
+  if(!m)return;
+  const prefix=m[1],numStr=m[2],suffix=m[3];
+  const target=parseFloat(numStr.replace(/,/g,''));
+  if(!isFinite(target)||target===0)return;
+  const hasComma=numStr.includes(',');
+  const duration=1400;
+  const start=performance.now();
+  function frame(now){
+    const elapsed=now-start;
+    const p=Math.min(elapsed/duration,1);
+    const eased=1-Math.pow(1-p,3); /* ease-out cubic */
+    const cur=Math.floor(target*eased);
+    const display=hasComma?cur.toLocaleString('en-US'):cur.toString();
+    el.textContent=prefix+display+suffix;
+    if(p<1)requestAnimationFrame(frame);
+    else el.textContent=original; /* exact final value */
+  }
+  requestAnimationFrame(frame);
+}
+
+/* Hero counters — animate after page settles */
+setTimeout(()=>{
+  document.querySelectorAll('#hero .hsv').forEach(animateCounter);
+},700);
+
+/* Case KPI counters — animate when card becomes visible */
+const counterObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.ckv').forEach(animateCounter);
+      counterObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.25});
+document.querySelectorAll('.cc').forEach(c=>counterObs.observe(c));
+
+/* 3. Magnetic effect on primary gold CTAs */
+(function(){
+  if(!hasHover)return;
+  /* Apply only to prominent gold buttons in hero, cases-cta, creatives-cta, and main cta section */
+  const ctas=document.querySelectorAll('#hero .bg, .ccta .bg, .cv-cta .bg, #cta .bg');
+  ctas.forEach(btn=>{
+    btn.style.transition='transform .25s cubic-bezier(0.2,0.8,0.2,1), background .2s, box-shadow .2s';
+    btn.addEventListener('mousemove',e=>{
+      const r=btn.getBoundingClientRect();
+      const cx=r.left+r.width/2;
+      const cy=r.top+r.height/2;
+      const dx=(e.clientX-cx)*0.25;
+      const dy=(e.clientY-cy)*0.35;
+      btn.style.transform=`translate(${dx}px, ${dy}px)`;
+    });
+    btn.addEventListener('mouseleave',()=>{
+      btn.style.transform='';
+    });
+  });
+})();
+
+/* 4. Creative video — hover to play (desktop), tap to play (mobile) */
+(function(){
+  document.querySelectorAll('.cv-card').forEach(card=>{
+    const video=card.querySelector('video');
+    if(!video)return;
+
+    if(hasHover){
+      /* Desktop: hover to play */
+      card.addEventListener('mouseenter',()=>{
+        video.play().then(()=>card.classList.add('playing')).catch(()=>{});
+      });
+      card.addEventListener('mouseleave',()=>{
+        video.pause();
+        video.currentTime=0;
+        card.classList.remove('playing');
+      });
+    }else{
+      /* Mobile/touch: tap to toggle */
+      card.addEventListener('click',e=>{
+        if(video.paused){
+          /* Pause all other playing videos first */
+          document.querySelectorAll('.cv-card.playing video').forEach(v=>{
+            if(v!==video){v.pause();v.currentTime=0;v.closest('.cv-card').classList.remove('playing');}
+          });
+          video.play().then(()=>card.classList.add('playing')).catch(()=>{});
+        }else{
+          video.pause();
+          video.currentTime=0;
+          card.classList.remove('playing');
+        }
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>
