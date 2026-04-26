@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Aleksandr Li — Landing Page v1.6 (mobile fixes) -->
+<!-- Aleksandr Li — Landing Page v1.7 (mobile carousel) -->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -320,6 +320,13 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .cv-card.playing .cv-play{opacity:0;transform:translate(-50%,-50%) scale(.7);pointer-events:none}
 .cv-info{padding:20px 22px}
 .cv-metric{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.35rem;color:var(--g);letter-spacing:.05em;line-height:1;display:block;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Swipe hint — only visible on mobile carousels */
+.cv-swipe-hint{display:none;text-align:center;font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--m);margin-top:-24px;margin-bottom:28px;pointer-events:none}
+.cv-swipe-hint span{display:inline-block;animation:swipeHintSlide 2.4s ease-in-out infinite}
+@keyframes swipeHintSlide{
+  0%,100%{transform:translateX(-4px);opacity:.45}
+  50%{transform:translateX(8px);opacity:1}
+}
 .cv-metric-lbl{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--m2);margin-bottom:14px;display:block}
 .cv-tag{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--m);padding-top:14px;border-top:1px solid var(--br2);display:block}
 .cv-card.no-metric .cv-info{padding-top:18px;padding-bottom:18px}
@@ -424,8 +431,13 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
   /* Creatives mobile */
   #creatives{padding:80px 24px}
-  .cv-grid{grid-template-columns:1fr;gap:14px;max-width:300px;margin-left:auto;margin-right:auto}
-  .cv-static-grid{grid-template-columns:1fr;gap:14px;max-width:380px;margin-left:auto;margin-right:auto}
+  .cv-grid{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;gap:12px;max-width:none;margin:0 -24px 40px;padding:0 11% 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  .cv-grid::-webkit-scrollbar{display:none}
+  .cv-card{flex:0 0 78%;scroll-snap-align:center}
+  .cv-swipe-hint{display:block}
+  .cv-static-grid{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;gap:12px;max-width:none;margin:0 -24px;padding:0 11% 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  .cv-static-grid::-webkit-scrollbar{display:none}
+  .cv-static-card{flex:0 0 78%;scroll-snap-align:center}
   .cv-static-divider{margin-top:60px;padding-top:48px}
   .cv-info{padding:18px 20px}
   .cv-metric{font-size:1.25rem}
@@ -854,6 +866,8 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
       </div>
     </div>
 
+    <div class="cv-swipe-hint"><span>Swipe →</span></div>
+
     <div class="cv-cta r">
       <a href="https://tally.so/r/XxROdz" target="_blank" rel="noopener" class="bg">View Full Creative Library →</a>
     </div>
@@ -888,6 +902,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
           <div class="cv-static-info"><span class="cv-static-tag">Men's Health</span></div>
         </div>
       </div>
+      <div class="cv-swipe-hint"><span>Swipe →</span></div>
     </div>
   </div>
 </section>
@@ -1248,7 +1263,13 @@ document.querySelectorAll('.cc').forEach(c=>counterObs.observe(c));
         video.currentTime = 0;
         video.setAttribute('controls', '');
         const p = video.play();
-        if(p && p.then) p.then(() => card.classList.add('playing')).catch(err => {
+        if(p && p.then) p.then(() => {
+          card.classList.add('playing');
+          /* On mobile carousel: scroll card into view (center it) */
+          if(window.matchMedia('(max-width: 900px)').matches){
+            card.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+          }
+        }).catch(err => {
           /* If unmute autoplay fails, fallback to muted */
           video.muted = true;
           video.play().then(() => card.classList.add('playing')).catch(()=>{});
