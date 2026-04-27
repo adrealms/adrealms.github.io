@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Aleksandr Li — Landing Page v1.7 (mobile carousel) -->
+<!-- Aleksandr Li — Landing Page v1.11 (scroll jitter fix + logo nudge) -->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -43,7 +43,7 @@
   --br2:rgba(255,255,255,0.06);
   --brt:rgba(94,234,212,0.18);
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{background:var(--b);color:var(--tx);font-family:'Outfit',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 .r{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
@@ -51,8 +51,8 @@ a{color:inherit;text-decoration:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(7,7,8,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--br2)}
-.logo{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.3rem;letter-spacing:.08em}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(7,7,8,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--br2);transform:translateZ(0);will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.logo{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.3rem;letter-spacing:.08em;line-height:1;display:inline-flex;align-items:center;transform:translateY(2px)}
 .logo span{color:var(--g)}
 .nav-l{display:flex;gap:36px;list-style:none}
 .nav-l a{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--m2);transition:color .2s}
@@ -67,6 +67,33 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 @media (prefers-reduced-motion: reduce){
   .nbtn{animation:none}
 }
+
+/* Burger button — hidden on desktop, visible on mobile */
+.burger{display:none;width:32px;height:32px;background:none;border:0;padding:0;cursor:pointer;position:relative;flex-shrink:0;margin-right:14px}
+.burger span{position:absolute;left:6px;width:20px;height:2px;background:var(--g);border-radius:1px;transition:transform .3s ease,opacity .2s ease,top .3s ease}
+.burger span:nth-child(1){top:10px}
+.burger span:nth-child(2){top:15px}
+.burger span:nth-child(3){top:20px}
+.burger.active span:nth-child(1){top:15px;transform:rotate(45deg)}
+.burger.active span:nth-child(2){opacity:0}
+.burger.active span:nth-child(3){top:15px;transform:rotate(-45deg)}
+
+/* Mobile fullscreen menu overlay */
+.mmenu{position:fixed;inset:0;z-index:190;background:rgba(7,7,8,.97);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .28s ease}
+.mmenu.open{opacity:1;pointer-events:auto}
+.mmenu-inner{display:flex;flex-direction:column;align-items:center;gap:28px;padding:80px 32px 48px;width:100%;max-width:380px}
+.mmenu-link{font-family:'Bebas Neue',Impact,sans-serif;font-size:2rem;letter-spacing:.06em;color:var(--w);text-transform:uppercase;transition:color .2s,transform .2s;text-decoration:none;opacity:0;transform:translateY(12px)}
+.mmenu-link:hover,.mmenu-link:active{color:var(--g)}
+.mmenu.open .mmenu-link{opacity:1;transform:translateY(0);transition:opacity .35s ease,transform .35s ease,color .2s}
+.mmenu.open .mmenu-link:nth-child(1){transition-delay:.06s}
+.mmenu.open .mmenu-link:nth-child(2){transition-delay:.10s}
+.mmenu.open .mmenu-link:nth-child(3){transition-delay:.14s}
+.mmenu.open .mmenu-link:nth-child(4){transition-delay:.18s}
+.mmenu.open .mmenu-link:nth-child(5){transition-delay:.22s}
+.mmenu-cta{margin-top:24px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--b);background:var(--g);padding:16px 36px;border-radius:3px;text-decoration:none;opacity:0;transform:translateY(12px);transition:background .2s,opacity .35s ease,transform .35s ease}
+.mmenu-cta:hover{background:var(--g2)}
+.mmenu.open .mmenu-cta{opacity:1;transform:translateY(0);transition-delay:.28s}
+body.menu-open{overflow:hidden}
 
 /* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;position:relative;overflow:hidden}
@@ -363,6 +390,9 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 /* RESPONSIVE — MOBILE */
 @media(max-width:900px){
   nav{padding:16px 24px}
+  .burger{display:block}
+  .logo{font-size:1rem}
+  .nbtn{font-size:.7rem;padding:9px 16px;letter-spacing:.1em}
   .nav-l{display:none}
   section,#hero,#testimonial,#cta{padding:80px 24px}
   #trust{padding:22px 24px}
@@ -463,6 +493,9 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 <body>
 
 <nav>
+  <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu">
+    <span></span><span></span><span></span>
+  </button>
   <div class="logo">ALEKSANDR <span>LI</span></div>
   <ul class="nav-l">
     <li><a href="#about">About</a></li>
@@ -473,6 +506,18 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
   </ul>
   <a href="https://calendar.app.google/tjZBaGKGAgntRVgn7" target="_blank" rel="noopener" class="nbtn">Book a Call</a>
 </nav>
+
+<!-- Mobile fullscreen menu -->
+<div class="mmenu" id="mmenu" aria-hidden="true">
+  <div class="mmenu-inner">
+    <a href="#about" class="mmenu-link">About</a>
+    <a href="#cases" class="mmenu-link">Case Studies</a>
+    <a href="#creatives" class="mmenu-link">Creatives</a>
+    <a href="#services" class="mmenu-link">Pricing</a>
+    <a href="#faq" class="mmenu-link">FAQ</a>
+    <a href="https://calendar.app.google/tjZBaGKGAgntRVgn7" target="_blank" rel="noopener" class="mmenu-cta">Book a Call →</a>
+  </div>
+</div>
 
 <!-- ───── HERO ───── -->
 <section id="hero">
@@ -882,12 +927,12 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
       <div class="cv-static-grid">
         <div class="cv-static-card r">
-          <div class="cv-static-media"><img src="images/s01_kadun.jpg" alt="Kadun Chess static creative" loading="lazy"></div>
-          <div class="cv-static-info"><span class="cv-static-tag">Luxury E-commerce</span></div>
+          <div class="cv-static-media"><img src="images/s05_iron.jpg" alt="Iron Remedy MD static creative" loading="lazy"></div>
+          <div class="cv-static-info"><span class="cv-static-tag">Men's Health</span></div>
         </div>
         <div class="cv-static-card r d1">
-          <div class="cv-static-media"><img src="images/s02_mingle.jpg" alt="Mingle Mobile static creative" loading="lazy"></div>
-          <div class="cv-static-info"><span class="cv-static-tag">Telecom</span></div>
+          <div class="cv-static-media"><img src="images/s01_kadun.jpg" alt="Kadun Chess static creative" loading="lazy"></div>
+          <div class="cv-static-info"><span class="cv-static-tag">Luxury E-commerce</span></div>
         </div>
         <div class="cv-static-card r d2">
           <div class="cv-static-media"><img src="images/s03_zigpoll.jpg" alt="Zigpoll static creative" loading="lazy"></div>
@@ -898,8 +943,8 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
           <div class="cv-static-info"><span class="cv-static-tag">Health & Wellness</span></div>
         </div>
         <div class="cv-static-card r">
-          <div class="cv-static-media"><img src="images/s05_iron.jpg" alt="Iron Remedy MD static creative" loading="lazy"></div>
-          <div class="cv-static-info"><span class="cv-static-tag">Men's Health</span></div>
+          <div class="cv-static-media"><img src="images/s02_mingle.jpg" alt="Mingle Mobile static creative" loading="lazy"></div>
+          <div class="cv-static-info"><span class="cv-static-tag">Telecom</span></div>
         </div>
       </div>
       <div class="cv-swipe-hint"><span>Swipe →</span></div>
@@ -1219,6 +1264,52 @@ document.querySelectorAll('.cc').forEach(c=>counterObs.observe(c));
     btn.addEventListener('mouseleave',()=>{
       btn.style.transform='';
     });
+  });
+})();
+
+/* 3.5. Mobile menu — burger toggle, Esc close, scroll lock */
+(function(){
+  const burger = document.querySelector('.burger');
+  const mmenu = document.getElementById('mmenu');
+  if(!burger || !mmenu) return;
+
+  const links = mmenu.querySelectorAll('a');
+
+  function openMenu(){
+    burger.classList.add('active');
+    burger.setAttribute('aria-expanded','true');
+    mmenu.classList.add('open');
+    mmenu.setAttribute('aria-hidden','false');
+    document.body.classList.add('menu-open');
+  }
+  function closeMenu(){
+    burger.classList.remove('active');
+    burger.setAttribute('aria-expanded','false');
+    mmenu.classList.remove('open');
+    mmenu.setAttribute('aria-hidden','true');
+    document.body.classList.remove('menu-open');
+  }
+  function toggleMenu(){
+    if(mmenu.classList.contains('open')) closeMenu();
+    else openMenu();
+  }
+
+  burger.addEventListener('click', toggleMenu);
+
+  /* Close on link tap (smooth scroll handled by browser via scroll-behavior) */
+  links.forEach(a => a.addEventListener('click', () => {
+    /* Small delay so the menu close animation feels natural before scroll starts */
+    setTimeout(closeMenu, 50);
+  }));
+
+  /* Close on Escape */
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && mmenu.classList.contains('open')) closeMenu();
+  });
+
+  /* Close if window resized to desktop */
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 900 && mmenu.classList.contains('open')) closeMenu();
   });
 })();
 
