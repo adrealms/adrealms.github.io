@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Aleksandr Li — Paid Media & Creative Strategy</title>
+<title>Aleksandr Li — Creative Strategy for Paid Media</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
@@ -57,7 +57,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-l{display:flex;gap:36px;list-style:none}
 .nav-l a{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--m2);transition:color .2s}
 .nav-l a:hover{color:var(--g)}
-.nbtn{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--b);background:var(--g);padding:11px 24px;border-radius:3px;transition:background .2s,transform .2s;position:relative;animation:nbtnPulse 3s ease-in-out infinite}
+.nbtn{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--b);background:var(--g);padding:11px 24px;border-radius:3px;transition:background .2s,transform .2s;position:relative}
 .nbtn:hover{background:var(--g2);animation:none;transform:translateY(-1px)}
 @keyframes nbtnPulse{
   0%,100%{box-shadow:0 0 0 0 rgba(200,169,110,0)}
@@ -179,6 +179,12 @@ h2.st .t{color:var(--t2)}
 .about-header .stag{margin-left:auto;margin-right:auto;margin-bottom:18px}
 .about-header h2{margin-bottom:0;max-width:880px;margin-left:auto;margin-right:auto}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;position:relative;z-index:1;margin-bottom:48px}
+.about-me{display:flex;align-items:center;gap:18px;margin-bottom:28px;padding-bottom:26px;border-bottom:1px solid var(--br2)}
+.about-photo{width:104px;height:104px;border-radius:10px;object-fit:cover;border:1px solid var(--br);flex-shrink:0;display:block}
+.about-id-name{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.6rem;letter-spacing:.04em;line-height:1;color:var(--tx);margin-bottom:7px}
+.about-id-role{font-size:.8rem;font-weight:600;letter-spacing:.04em;color:var(--g);margin-bottom:5px}
+.about-id-loc{font-size:.78rem;color:var(--m)}
+.cta-photo{width:76px;height:76px;border-radius:50%;object-fit:cover;border:1px solid var(--br);display:block;margin:0 auto 20px}
 .about-text-block p{font-size:.96rem;color:var(--m2);line-height:1.8;margin-bottom:18px}
 .about-text-block p strong{color:var(--tx);font-weight:500}
 .about-text-block p .key{color:var(--g);font-weight:600}
@@ -187,7 +193,7 @@ h2.st .t{color:var(--t2)}
 .acard:hover{border-color:var(--brt);transform:translateY(-2px)}
 .acard-icon{width:36px;height:36px;border-radius:8px;background:var(--td);border:1px solid var(--brt);display:flex;align-items:center;justify-content:center;color:var(--t2);font-family:'Bebas Neue',Impact,sans-serif;font-size:1.1rem;margin-bottom:14px}
 .acard h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx);margin-bottom:8px}
-.acard p{font-size:.83rem;color:var(--m2);line-height:1.6}
+.acard p{font-size:.94rem;color:var(--m2);line-height:1.6}
 .about-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:36px;border-top:1px solid var(--br2);position:relative;z-index:1}
 .atag{font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--g);background:var(--gd);border:1px solid var(--br);padding:6px 14px;border-radius:100px}
 
@@ -201,7 +207,7 @@ h2.st .t{color:var(--t2)}
 .snum{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--m);margin-bottom:8px}
 .snum.s0{display:inline-block;background:var(--g);color:var(--b);padding:3px 10px;border-radius:100px;margin-bottom:12px}
 .stitle{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.55rem;letter-spacing:.02em;color:var(--tx);margin-bottom:12px;line-height:1}
-.sdesc{font-size:.81rem;color:var(--m2);line-height:1.65;margin-bottom:14px}
+.sdesc{font-size:.94rem;color:var(--m2);line-height:1.65;margin-bottom:14px}
 .schecks{display:flex;flex-direction:column;gap:7px}
 .sc{display:flex;align-items:center;gap:8px;font-size:.77rem;color:var(--m2)}
 .sc::before{content:'';width:14px;height:14px;flex-shrink:0;border-radius:50%;background:var(--td);border:1px solid var(--brt);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 5l2.5 2.5L8 3' stroke='%232DD4BF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
@@ -287,7 +293,7 @@ h2.st .t{color:var(--t2)}
 .tpr.free{color:var(--t1)}
 .tper{font-size:.66rem;font-weight:500;color:var(--m);display:block;margin:3px 0 14px}
 .tnm{font-size:.77rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx);margin-bottom:9px}
-.tdesc{font-size:.81rem;color:var(--m2);line-height:1.65}
+.tdesc{font-size:.94rem;color:var(--m2);line-height:1.65}
 
 /* FAQ */
 #faq{background:var(--b2)}
@@ -300,7 +306,7 @@ h2.st .t{color:var(--t2)}
 .fi.open .fico{transform:rotate(45deg);background:var(--gd)}
 .fa{max-height:0;overflow:hidden;transition:max-height .4s ease}
 .fi.open .fa{max-height:340px}
-.fai{padding:0 26px 20px;font-size:.85rem;color:var(--m2);line-height:1.75;border-top:1px solid var(--br2);padding-top:14px}
+.fai{padding:0 26px 20px;font-size:.94rem;color:var(--m2);line-height:1.75;border-top:1px solid var(--br2);padding-top:14px}
 .fai strong{color:var(--tx);font-weight:500}
 
 /* CTA */
@@ -356,6 +362,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 }
 .cv-metric-lbl{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--m2);margin-bottom:14px;display:block}
 .cv-tag{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--m);padding-top:14px;border-top:1px solid var(--br2);display:block}
+.cv-card.text-metric .cv-metric{font-size:1.05rem;letter-spacing:.06em}
 .cv-card.no-metric .cv-info{padding-top:18px;padding-bottom:18px}
 .cv-card.no-metric .cv-tag{padding-top:0;border-top:none;color:var(--g)}
 .cv-cta{text-align:center;margin-top:48px;margin-bottom:16px;position:relative;z-index:1}
@@ -430,6 +437,9 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
   .about-header{margin-bottom:32px}
   .about-grid{grid-template-columns:1fr;gap:36px;margin-bottom:32px}
   .about-text-block{text-align:left}
+  .about-me{gap:14px}
+  .about-photo{width:84px;height:84px}
+  .about-id-name{font-size:1.35rem}
   .about-cards{grid-template-columns:1fr 1fr}
 
   /* HERO MOBILE — center everything in left column */
@@ -501,7 +511,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
     <li><a href="#about">About</a></li>
     <li><a href="#cases">Case Studies</a></li>
     <li><a href="#creatives">Creatives</a></li>
-    <li><a href="#services">Services</a></li>
+    <li><a href="#services">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <a href="https://calendar.app.google/tjZBaGKGAgntRVgn7" target="_blank" rel="noopener" class="nbtn">Book a Call</a>
@@ -526,11 +536,11 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
     <div class="r">
       <div class="hbadge"><span class="dot"></span>8+ Years · $25M+ Managed</div>
       <h1 class="ht">Lower your CPA<br>with creatives built to <span class="g">scale.</span></h1>
-      <p class="hsub"><strong>Creative strategy and media buying</strong> — connected by data, built as one system. $25M+ in ad spend managed across the USA, Europe, CIS, and Canada.</p>
+      <p class="hsub"><strong>Creative strategy backed by data and real performance.</strong> Every brief written against what actually scales in the account — not what looks good in a deck.</p>
       <div class="hpills">
         <div class="pill"><span class="pdot"></span>Data-Driven Creative Strategy</div>
-        <div class="pill"><span class="pdot"></span>Multi-Platform Media Buying</div>
-        <div class="pill"><span class="pdot"></span>Full-Funnel Architecture</div>
+        <div class="pill"><span class="pdot"></span>Full-Funnel &amp; Awareness Mapping</div>
+        <div class="pill"><span class="pdot"></span>Written by a Media Buyer</div>
       </div>
       <div class="hbtns">
         <a href="https://calendar.app.google/tjZBaGKGAgntRVgn7" target="_blank" rel="noopener" class="bg">Book a Free Call →</a>
@@ -565,12 +575,20 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
   <div class="mx">
     <div class="about-header r">
       <div class="stag">About Me</div>
-      <h2 class="st">Two skill sets,<br><span class="t">one operator.</span></h2>
+      <h2 class="st">Creative strategy,<br><span class="t">written by a media buyer.</span></h2>
     </div>
     <div class="about-grid">
       <div class="about-text-block r">
-        <p>I run paid media the same way performance teams build product — <span class="key">data-first, evidence-based, every decision testable.</span> No "creative intuition," no "trust me, this'll work." Audience research, structured creative testing, dynamic budget allocation against live CPA.</p>
-        <p>I started in 2017, built my own social presence, published case studies, and took on first clients through word of mouth. Over 8 years the work scaled: from local businesses in Eastern Europe to <strong>$3M/month across 7 platforms in the USA</strong>.</p>
+        <div class="about-me">
+          <img class="about-photo" src="images/aleksandr.jpg" alt="Aleksandr Li" width="104" height="104" loading="lazy">
+          <div>
+            <div class="about-id-name">Aleksandr Li</div>
+            <div class="about-id-role">Creative Strategist · Paid Social</div>
+            <div class="about-id-loc">Europe · GMT+2 · Working with USA, EU &amp; CIS</div>
+          </div>
+        </div>
+        <p>I build creative the same way performance teams build product — <span class="key">data-first, evidence-based, every decision testable.</span> No "creative intuition," no "trust me, this'll work." Audience research, structured testing, every concept judged against live CPA.</p>
+        <p>I started in 2017, built my own social presence, published case studies, and took on first clients through word of mouth. Over 8 years the work scaled: from local businesses in Eastern Europe to brands launched from zero, six- and seven-figure DTC operations, and agency accounts running <strong>$1M+/month</strong> — up to <strong>$3M/month across 7 platforms in the USA</strong>.</p>
         <p>The last 4–5 years I've focused heavily on creative strategy — because that's where the real leverage shifted. As Meta, TikTok, and Google moved targeting control to their algorithms, <strong>the creative became the targeting</strong>. The hook, the message, the format now determine who sees your ad. Most media buyers haven't caught up to this yet.</p>
         <p>I don't make promises before I understand your business. If paid media can move the needle for you — I'll tell you exactly how. If it can't — I'll tell you that too.</p>
       </div>
@@ -581,19 +599,19 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
           <p>Audience research, offer psychology, brief writing, creative frameworks, competitive analysis, performance analytics.</p>
         </div>
         <div class="acard">
-          <div class="acard-icon">MB</div>
-          <h4>Media Buying</h4>
-          <p>Direct buying across Meta, TikTok, Google, Snapchat, YouTube. Dynamic budget allocation vs. live CPA.</p>
+          <div class="acard-icon">FF</div>
+          <h4>Full-Funnel Creative</h4>
+          <p>Creative mapped across TOF/MOF/BOF and awareness levels, so every asset speaks to where the buyer actually is.</p>
         </div>
         <div class="acard">
-          <div class="acard-icon">FF</div>
-          <h4>Full-Funnel</h4>
-          <p>TOF/MOF/BOF architecture, budget allocation across channels, scaling systems for lead gen and e-commerce.</p>
+          <div class="acard-icon">MB</div>
+          <h4>Media Buying Background</h4>
+          <p>Eight years buying on Meta, TikTok, Google, Snapchat and YouTube. I know how creative behaves in a live auction.</p>
         </div>
         <div class="acard">
           <div class="acard-icon">TM</div>
-          <h4>Team Management</h4>
-          <p>Coordinating designers, editors, media buyers, and UGC creators from brief to launch and analysis.</p>
+          <h4>Production &amp; Team</h4>
+          <p>From brief to finished asset: writing concepts, directing designers, editors and UGC creators, holding the quality bar.</p>
         </div>
       </div>
     </div>
@@ -614,7 +632,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
     <div class="ph r">
       <div class="stag">How It Works</div>
       <h2 class="st">A clear path from<br>discovery to <span class="g">scale.</span></h2>
-      <p class="ssub">A structured process that turns your paid media into a scalable, predictable growth system — without the agency over-promising.</p>
+      <p class="ssub">A structured process that turns your creative into a scalable, predictable growth system — without the agency over-promising.</p>
     </div>
     <div class="ps">
       <div class="step r">
@@ -630,30 +648,30 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
       <div class="step r d1">
         <div class="snum">Step 2</div>
         <div class="stitle">Strategy Blueprint</div>
-        <div class="sdesc">Audience research, competitor analysis, and a creative + media plan tailored to your business model and growth targets.</div>
+        <div class="sdesc">Audience research, competitor analysis, and a creative plan mapped to your funnel stages and awareness levels.</div>
         <div class="schecks">
           <div class="sc">Creative framework design</div>
-          <div class="sc">Personalised media plan</div>
+          <div class="sc">Awareness-level mapping</div>
         </div>
         <div class="sarr">→</div>
       </div>
       <div class="step r d2">
         <div class="snum">Step 3</div>
         <div class="stitle">Launch &amp; Test</div>
-        <div class="sdesc">Account audit, structured creative testing, and dynamic budget allocation across platforms vs. live CPA.</div>
+        <div class="sdesc">Concepts go into production and into the account as a structured test — one variable at a time, measured against live CPA.</div>
         <div class="schecks">
-          <div class="sc">Account audit &amp; setup</div>
-          <div class="sc">Creative testing framework</div>
+          <div class="sc">Structured test design</div>
+          <div class="sc">Clean creative reads</div>
         </div>
         <div class="sarr">→</div>
       </div>
       <div class="step r d3">
         <div class="snum">Step 4</div>
         <div class="stitle">Scale</div>
-        <div class="sdesc">Scale winners, cut losers, expand across platforms, and compound growth month over month.</div>
+        <div class="sdesc">Winners get iterated into new angles and formats, losers get cut, and the creative library compounds month over month.</div>
         <div class="schecks">
-          <div class="sc">Multi-platform scaling</div>
-          <div class="sc">Compounding growth</div>
+          <div class="sc">Winner iteration</div>
+          <div class="sc">Compounding library</div>
         </div>
       </div>
     </div>
@@ -797,56 +815,56 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
     <div class="creatives-header r">
       <div class="stag">Creative Portfolio</div>
       <h2 class="st">Top creatives that<br><span class="g">delivered.</span></h2>
-      <p class="ssub" style="margin-left:auto;margin-right:auto;text-align:center">A selection of high-performing video and static creatives across lead gen, telecom, health & wellness, SaaS, and e-commerce. Hover any video to play.</p>
+      <p class="ssub" style="margin-left:auto;margin-right:auto;text-align:center">A selection of video and static creatives across lead gen, telecom, health & wellness, SaaS, and e-commerce — different formats, different funnel stages. The top performers here carried <strong>$3.5M+ in combined lifetime ad spend</strong>. Click any video to play.</p>
     </div>
 
     <!-- Video grid 3x3 -->
     <div class="cv-grid">
-      <div class="cv-card r">
+      <div class="cv-card text-metric r">
         <div class="cv-media">
           <video src="videos/v01_acp_705k.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
-          <span class="cv-metric">$705K</span>
-          <span class="cv-metric-lbl">Lifetime Spend</span>
-          <span class="cv-tag">UGC Mix · Lead Gen</span>
+          <span class="cv-metric">UGC MIX</span>
+          <span class="cv-metric-lbl">Multi-Creator Cut</span>
+          <span class="cv-tag">Lead Gen · USA</span>
         </div>
       </div>
 
-      <div class="cv-card r d1">
+      <div class="cv-card text-metric r d1">
         <div class="cv-media">
           <video src="videos/v02_acp_1_2m.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
-          <span class="cv-metric">$1.2M</span>
-          <span class="cv-metric-lbl">Lifetime Spend</span>
-          <span class="cv-tag">UGC Unboxing · Lead Gen</span>
+          <span class="cv-metric">UNBOXING</span>
+          <span class="cv-metric-lbl">Product Demo</span>
+          <span class="cv-tag">Lead Gen · USA</span>
         </div>
       </div>
 
-      <div class="cv-card r d2">
+      <div class="cv-card text-metric r d2">
         <div class="cv-media">
           <video src="videos/v03_acp_349k.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
-          <span class="cv-metric">$349K</span>
-          <span class="cv-metric-lbl">Lifetime Spend</span>
-          <span class="cv-tag">UGC Dialogue · Lead Gen</span>
+          <span class="cv-metric">DIALOGUE</span>
+          <span class="cv-metric-lbl">Two-Person Skit</span>
+          <span class="cv-tag">Lead Gen · USA</span>
         </div>
       </div>
 
-      <div class="cv-card r">
+      <div class="cv-card text-metric r">
         <div class="cv-media">
           <video src="videos/v04_acp_500k.mp4" muted playsinline preload="metadata"></video>
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
-          <span class="cv-metric">$500K</span>
-          <span class="cv-metric-lbl">Lifetime Spend</span>
-          <span class="cv-tag">UGC Educational · Lead Gen</span>
+          <span class="cv-metric">EDUCATIONAL</span>
+          <span class="cv-metric-lbl">Explainer UGC</span>
+          <span class="cv-tag">Lead Gen · USA</span>
         </div>
       </div>
 
@@ -856,9 +874,9 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
-          <span class="cv-metric">MINGLE MOBILE</span>
-          <span class="cv-metric-lbl">Telecom Brand</span>
-          <span class="cv-tag">Hook on Paper · UGC</span>
+          <span class="cv-metric">HOOK ON PAPER</span>
+          <span class="cv-metric-lbl">Pattern Interrupt</span>
+          <span class="cv-tag">Telecom</span>
         </div>
       </div>
 
@@ -868,9 +886,9 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
-          <span class="cv-metric">SEMAGLUTIDE</span>
-          <span class="cv-metric-lbl">Direct Response</span>
-          <span class="cv-tag">UGC · Health & Wellness</span>
+          <span class="cv-metric">TESTIMONIAL</span>
+          <span class="cv-metric-lbl">Direct Response UGC</span>
+          <span class="cv-tag">Health & Wellness</span>
         </div>
       </div>
 
@@ -880,9 +898,9 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
-          <span class="cv-metric">T-TREATMENT</span>
-          <span class="cv-metric-lbl">Direct Response</span>
-          <span class="cv-tag">UGC · Men's Health</span>
+          <span class="cv-metric">PROBLEM → FIX</span>
+          <span class="cv-metric-lbl">Direct Response UGC</span>
+          <span class="cv-tag">Men's Health</span>
         </div>
       </div>
 
@@ -892,9 +910,9 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
-          <span class="cv-metric">TOP PERFORMER</span>
-          <span class="cv-metric-lbl">Featured Ad</span>
-          <span class="cv-tag">UGC · SaaS</span>
+          <span class="cv-metric">PODCAST STYLE</span>
+          <span class="cv-metric-lbl">Founder-Led</span>
+          <span class="cv-tag">SaaS</span>
         </div>
       </div>
 
@@ -904,9 +922,9 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
           <div class="cv-play"></div>
         </div>
         <div class="cv-info">
-          <span class="cv-metric">TITANTREK</span>
-          <span class="cv-metric-lbl">Travel Gear</span>
-          <span class="cv-tag">UGC Use Case</span>
+          <span class="cv-metric">USE CASE</span>
+          <span class="cv-metric-lbl">Product in Action</span>
+          <span class="cv-tag">Travel Gear</span>
         </div>
       </div>
     </div>
@@ -914,7 +932,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
     <div class="cv-swipe-hint"><span>Swipe →</span></div>
 
     <div class="cv-cta r">
-      <a href="https://tally.so/r/XxROdz" target="_blank" rel="noopener" class="bg">View Full Creative Library →</a>
+      <a href="https://tally.so/r/XxROdz" target="_blank" rel="noopener" class="bg">Request Full Portfolio →</a>
     </div>
 
     <!-- Static creatives -->
@@ -1024,22 +1042,22 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
       <div class="ccard cold">
         <div class="clbl2">Most Agencies</div>
         <div class="citems">
-          <div class="ci"><div class="cico">✕</div>Separate media buyer and creative team — no shared context</div>
+          <div class="ci"><div class="cico">✕</div>Creative teams that never open the ad account</div>
           <div class="ci"><div class="cico">✕</div>Creatives made by gut feel, not audience research</div>
           <div class="ci"><div class="cico">✕</div>Over-promising before understanding your business</div>
           <div class="ci"><div class="cico">✕</div>Same creatives running for months — no testing framework</div>
-          <div class="ci"><div class="cico">✕</div>Set-and-forget budgets across platforms</div>
+          <div class="ci"><div class="cico">✕</div>One-size-fits-all creative, whatever the funnel stage</div>
         </div>
       </div>
       <div class="cvs">VS</div>
       <div class="ccard cnew">
         <div class="clbl2">My Approach</div>
         <div class="citems">
-          <div class="ci"><div class="cico">✓</div>Media buying and creative strategy built as one system</div>
+          <div class="ci"><div class="cico">✓</div>Every concept written by someone who has actually bought the media</div>
           <div class="ci"><div class="cico">✓</div>Every brief backed by audience research and competitor data</div>
           <div class="ci"><div class="cico">✓</div>Honest diagnosis first — no promises before understanding your business</div>
           <div class="ci"><div class="cico">✓</div>100+ creatives tested monthly — structured, repeatable framework</div>
-          <div class="ci"><div class="cico">✓</div>Dynamic budget allocation across platforms vs. live CPA</div>
+          <div class="ci"><div class="cico">✓</div>Creative mapped to funnel stage and awareness level</div>
         </div>
       </div>
     </div>
@@ -1056,18 +1074,12 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
     </div>
     <div class="tb r">
       <div class="tblbl">Start Here — No Commitment Required</div>
-      <div class="tgrid c3">
+      <div class="tgrid c2">
         <div class="tier">
           <div class="tpr free">Free</div>
           <span class="tper">No strings attached</span>
           <div class="tnm">30-Min Strategy Call</div>
-          <div class="tdesc">I review your current paid media situation and tell you exactly what I see. No pitch, no pressure. Just an honest read on where you are and what's possible.</div>
-        </div>
-        <div class="tier">
-          <div class="tpr">$350</div>
-          <span class="tper">One-time · 3–5 days</span>
-          <div class="tnm">Paid Media Audit</div>
-          <div class="tdesc">Full account review: campaign structure, creative performance, funnel gaps, budget leaks. You get a document with specific action points you can act on immediately.</div>
+          <div class="tdesc">I review your current creative and paid media situation and tell you exactly what I see. No pitch, no pressure. Just an honest read on where you are and what's possible.</div>
         </div>
         <div class="tier">
           <div class="tpr">$299</div>
@@ -1078,32 +1090,20 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
       </div>
     </div>
     <div class="tb r">
-      <div class="tblbl">Monthly Retainers</div>
-      <div class="tgrid c4">
-        <div class="tier">
-          <div class="tpr">$2,500–3,500</div>
-          <span class="tper">Per month</span>
-          <div class="tnm">Media Buying</div>
-          <div class="tdesc">Account management across Meta, TikTok, Google. Daily monitoring + optimisation. Weekly async reporting. Creatives provided by your team.</div>
-        </div>
-        <div class="tier">
-          <div class="tpr">$2,000–3,000</div>
-          <span class="tper">Per month</span>
-          <div class="tnm">Creative Strategy</div>
-          <div class="tdesc">20 creative concepts/month with full briefs. Competitor research. Creative analytics and winner identification. For brands with their own media buyers.</div>
-        </div>
+      <div class="tblbl">Ongoing Engagement</div>
+      <div class="tgrid c2">
         <div class="tier ft">
           <div class="tbadge">Recommended</div>
-          <div class="tpr">$4,500–6,000</div>
+          <div class="tpr">From $3,000</div>
           <span class="tper">Per month</span>
-          <div class="tnm">MB + Creative Strategy</div>
-          <div class="tdesc">The full system. Creative strategy and media buying connected — the combo that generates results like the case studies above.</div>
+          <div class="tnm">Creative Strategy</div>
+          <div class="tdesc">30+ creative concepts a month with full briefs, competitor research, and winner identification. Your team handles production — no agency markup, faster iteration, and the assets stay yours.<br><br><strong>Scope drives the price:</strong> video vs. static, briefs for creators, creator coordination, and how much of your design team I run.</div>
         </div>
         <div class="tier">
           <div class="tpr">Custom</div>
           <span class="tper">On request</span>
-          <div class="tnm">% of Spend</div>
-          <div class="tdesc">For accounts with $50K+/month ad spend. Pricing tied to managed spend (10–15%). Multi-platform or complex account structures.</div>
+          <div class="tnm">Performance-Based</div>
+          <div class="tdesc">For brands scaling past $50K/month in ad spend. Retainer plus a share tied to the spend your winning creatives carry — so I'm paid more only when the creative actually scales. Structured case by case.</div>
         </div>
       </div>
     </div>
@@ -1120,15 +1120,17 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
     <div class="fl">
       <div class="fi r"><div class="fq" onclick="tf(this)">What type of businesses do you work with?<div class="fico">+</div></div><div class="fa"><div class="fai">I work primarily with DTC e-commerce brands, lead generation businesses, online education, and high-ticket services. Verticals include health & wellness, telecom, SaaS, immigration, travel & lifestyle goods, and luxury / high-ticket products. The common thread: brands with serious ad budgets ($20K+/month) that want a real system, not just someone to "run ads."</div></div></div>
 
-      <div class="fi r d1"><div class="fq" onclick="tf(this)">What ad spend do I need to work with you?<div class="fico">+</div></div><div class="fa"><div class="fai">For monthly retainers, the recommended minimum is <strong>$20K+/month</strong> in ad spend — below that, the math rarely works for either of us. For audits ($299–$350), there's no minimum — these are useful for any brand running ads, regardless of budget size.</div></div></div>
+      <div class="fi r d1"><div class="fq" onclick="tf(this)">What ad spend do I need to work with you?<div class="fico">+</div></div><div class="fa"><div class="fai">The recommended minimum is <strong>$20K+/month</strong> in ad spend — and that's not about my rate. Below that you can't run a clean creative test: too little data, too slow to read, and you end up guessing anyway. For the <strong>Creative Audit ($299)</strong> there's no minimum — it's useful for any brand running ads.</div></div></div>
 
       <div class="fi r d2"><div class="fq" onclick="tf(this)">Do I need to commit to a long-term contract?<div class="fico">+</div></div><div class="fa"><div class="fai">Retainers are <strong>month-to-month with 30-day notice</strong>. No 3-month or 6-month lock-ins. That said, paid media isn't a 30-day game — meaningful scaling happens in months 2–4. Most clients stay 6+ months because the system compounds. The flexibility is there if it's not working — but in my experience, when expectations are aligned upfront, it's rarely needed.</div></div></div>
 
       <div class="fi r d3"><div class="fq" onclick="tf(this)">How long until I see results?<div class="fico">+</div></div><div class="fa"><div class="fai">Honest answer: it depends on where you start. If you have an existing account with stable creatives, I can usually move CPA in <strong>2–4 weeks</strong>. If we're launching from zero — building creative pipelines, testing frameworks, audience research — meaningful results take <strong>6–8 weeks</strong>. Anyone promising overnight results is either lying or working with very low standards for "results."</div></div></div>
 
-      <div class="fi r d3"><div class="fq" onclick="tf(this)">Do I need to provide creatives or do you make them?<div class="fico">+</div></div><div class="fa"><div class="fai">Both options exist. The <strong>Media Buying</strong> retainer assumes you provide creatives. The <strong>MB + Creative Strategy</strong> retainer includes the full creative pipeline — concepts, briefs, and coordination with designers/editors/UGC creators (your team or mine). Most clients find the combined option drives meaningfully better results because the creative is built specifically to perform in the ad environment.</div></div></div>
+      <div class="fi r d3"><div class="fq" onclick="tf(this)">Do I need to provide creatives or do you make them?<div class="fico">+</div></div><div class="fa"><div class="fai">I write the concepts and the briefs; <strong>your team produces them</strong>. Most brands who come to me already have editors or designers, and keeping production in-house means no agency markup, faster iteration, and the finished assets stay yours. If you don't have anyone, I can help you source production — that's discussed separately.</div></div></div>
 
-      <div class="fi r"><div class="fq" onclick="tf(this)">What makes you different from agencies or other freelancers?<div class="fico">+</div></div><div class="fa"><div class="fai">Most media buyers don't build creatives, and most creative strategists don't buy media. <strong>I do both</strong> — which means the creative strategy is built specifically to perform in the platform environment I'm managing. No handoff delays, no context loss, no finger-pointing when results aren't there. One system, one person accountable.</div></div></div>
+      <div class="fi r"><div class="fq" onclick="tf(this)">What makes you different from agencies or other freelancers?<div class="fico">+</div></div><div class="fa"><div class="fai">Most creative strategists have never spent a dollar of ad budget — they write briefs from a mood board and hope. I spent eight years and <strong>$25M+ inside the accounts</strong>. That means I know what a hook has to do to survive an auction, what still works when you push past $200/day, and what quietly dies the moment you raise the budget. The strategy is written against the account, not against a deck.</div></div></div>
+
+      <div class="fi r d3"><div class="fq" onclick="tf(this)">Do you also run the ads?<div class="fico">+</div></div><div class="fa"><div class="fai">No — I don't take media buying retainers. My focus is creative strategy, and I work alongside your media buyer, in-house team, or agency. I do ask for <strong>read-only access to the ad account</strong>: reading real performance data is exactly what makes the creative work, and without it I'd be guessing like everyone else.</div></div></div>
 
       <div class="fi r d1"><div class="fq" onclick="tf(this)">How do you measure success?<div class="fico">+</div></div><div class="fa"><div class="fai">Primary KPIs are agreed upfront: CPA, ROAS, or CPL depending on the business model. I track intermediate metrics (CPC, CTR, hook rate, scroll-stop rate) to diagnose creative performance. <strong>Winning creatives must also be scalable</strong> — I don't call something a winner if it only works at $200/day.</div></div></div>
 
@@ -1144,8 +1146,9 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 <!-- ───── CTA ───── -->
 <section id="cta">
   <div class="ci2">
+    <img class="cta-photo r" src="images/aleksandr.jpg" alt="Aleksandr Li" width="76" height="76" loading="lazy">
     <div class="ctag2 r"><span class="dot"></span>Limited Availability</div>
-    <h2 class="ct r d1">Ready to scale<br><span class="g">your paid media?</span></h2>
+    <h2 class="ct r d1">Ready to scale<br><span class="g">your creative performance?</span></h2>
     <p class="csub r d2">Book a free 30-minute discovery call. I'll review your current setup and tell you exactly what I see. No pitch, no pressure.</p>
     <div class="cbtns r d3">
       <a href="https://calendar.app.google/tjZBaGKGAgntRVgn7" target="_blank" rel="noopener" class="bg">📅 Book a Free Call</a>
@@ -1166,7 +1169,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
     <a href="#about">About</a>
     <a href="#cases">Cases</a>
     <a href="#creatives">Creatives</a>
-    <a href="#services">Services</a>
+    <a href="#services">Pricing</a>
     <a href="#faq">FAQ</a>
   </div>
   <div class="fcopy">© <span id="yr">2026</span> Aleksandr Li</div>
