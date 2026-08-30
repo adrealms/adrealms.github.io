@@ -178,7 +178,7 @@ h2.st .t{color:var(--t2)}
 .about-header{margin-bottom:56px;text-align:center;position:relative;z-index:1}
 .about-header .stag{margin-left:auto;margin-right:auto;margin-bottom:18px}
 .about-header h2{margin-bottom:0;max-width:880px;margin-left:auto;margin-right:auto}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;position:relative;z-index:1;margin-bottom:48px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:stretch;position:relative;z-index:1;margin-bottom:48px}
 .about-me{display:flex;align-items:center;gap:18px;margin-bottom:28px;padding-bottom:26px;border-bottom:1px solid var(--br2)}
 .about-photo{width:104px;height:104px;border-radius:10px;object-fit:cover;border:1px solid var(--br);flex-shrink:0;display:block}
 .about-id-name{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.6rem;letter-spacing:.04em;line-height:1;color:var(--tx);margin-bottom:7px}
@@ -188,13 +188,14 @@ h2.st .t{color:var(--t2)}
 .about-text-block p{font-size:.96rem;color:var(--m2);line-height:1.8;margin-bottom:18px}
 .about-text-block p strong{color:var(--tx);font-weight:500}
 .about-text-block p .key{color:var(--g);font-weight:600}
+.about-right{display:flex;flex-direction:column}
 .about-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .acard{background:var(--b3);border:1px solid var(--br2);border-radius:6px;padding:24px;transition:border-color .3s,transform .2s}
 .acard:hover{border-color:var(--brt);transform:translateY(-2px)}
 .acard-icon{width:36px;height:36px;border-radius:8px;background:var(--td);border:1px solid var(--brt);display:flex;align-items:center;justify-content:center;color:var(--t2);font-family:'Bebas Neue',Impact,sans-serif;font-size:1.1rem;margin-bottom:14px}
 .acard h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx);margin-bottom:8px}
 .acard p{font-size:.94rem;color:var(--m2);line-height:1.6}
-.about-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:36px;border-top:1px solid var(--br2);position:relative;z-index:1}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start;margin-top:auto;padding-top:22px;border-top:1px solid var(--br2);position:relative;z-index:1}
 .atag{font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--g);background:var(--gd);border:1px solid var(--br);padding:6px 14px;border-radius:100px}
 
 /* PROCESS */
@@ -284,7 +285,9 @@ h2.st .t{color:var(--t2)}
 .c2{grid-template-columns:1fr 1fr}
 .c3{grid-template-columns:repeat(3,1fr)}
 .c4{grid-template-columns:repeat(4,1fr)}
-.tier{background:var(--b3);border:1px solid var(--br2);border-radius:6px;padding:26px 22px;position:relative;transition:border-color .3s,transform .2s}
+.tier{background:var(--b3);border:1px solid var(--br2);border-radius:6px;padding:26px 22px;position:relative;transition:border-color .3s,transform .2s;display:flex;flex-direction:column}
+.tcta{margin-top:auto;padding-top:24px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);display:inline-flex;align-items:center;gap:7px;align-self:flex-start;transition:gap .2s,color .2s}
+.tcta:hover{gap:12px;color:var(--g2)}
 .tier:hover{border-color:var(--br);transform:translateY(-2px)}
 .tier.ft{border-color:var(--br);background:linear-gradient(135deg,rgba(200,169,110,.07) 0%,var(--b3) 60%)}
 .tier.ft::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent)}
@@ -436,6 +439,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
   .sh .stag,.sh .ssub{margin-left:auto;margin-right:auto}
   .about-header{margin-bottom:32px}
   .about-grid{grid-template-columns:1fr;gap:36px;margin-bottom:32px}
+  .about-tags{justify-content:center}
   .about-text-block{text-align:left}
   .about-me{gap:14px}
   .about-photo{width:84px;height:84px}
@@ -587,12 +591,13 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
             <div class="about-id-loc">Europe · GMT+2 · Working with USA, EU &amp; CIS</div>
           </div>
         </div>
-        <p>I build creative the same way performance teams build product — <span class="key">data-first, evidence-based, every decision testable.</span> No "creative intuition," no "trust me, this'll work." Audience research, structured testing, every concept judged against live CPA.</p>
-        <p>I started in 2017, built my own social presence, published case studies, and took on first clients through word of mouth. Over 8 years the work scaled: from local businesses in Eastern Europe to brands launched from zero, six- and seven-figure DTC operations, and agency accounts running <strong>$1M+/month</strong> — up to <strong>$3M/month across 7 platforms in the USA</strong>.</p>
+        <p>I build creative the same way performance teams build product — <span class="key">data-first, evidence-based, every decision testable.</span> No "creative intuition," no "trust me, this'll work." Audience research, structured testing, every concept judged against your real KPIs.</p>
+        <p>I started in 2017, built my own social presence, published case studies, and took on first clients through word of mouth. Over 8 years the work scaled: from local businesses in Eastern Europe to brands launched from zero, six- and seven-figure DTC operations, and <strong>agency rosters of brands spending $1M+/month</strong> — one of them peaking at <strong>$3M/month across 7 platforms in the USA</strong>.</p>
         <p>The last 4–5 years I've focused heavily on creative strategy — because that's where the real leverage shifted. As Meta, TikTok, and Google moved targeting control to their algorithms, <strong>the creative became the targeting</strong>. The hook, the message, the format now determine who sees your ad. Most media buyers haven't caught up to this yet.</p>
         <p>I don't make promises before I understand your business. If paid media can move the needle for you — I'll tell you exactly how. If it can't — I'll tell you that too.</p>
       </div>
-      <div class="about-cards r d1">
+      <div class="about-right r d1">
+        <div class="about-cards">
         <div class="acard">
           <div class="acard-icon">CS</div>
           <h4>Creative Strategy</h4>
@@ -613,15 +618,16 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
           <h4>Production &amp; Team</h4>
           <p>From brief to finished asset: writing concepts, directing designers, editors and UGC creators, holding the quality bar.</p>
         </div>
+        </div>
+        <div class="about-tags">
+          <span class="atag">Meta Ads</span>
+          <span class="atag">TikTok Ads</span>
+          <span class="atag">Google Ads</span>
+          <span class="atag">Creative Strategy</span>
+          <span class="atag">Lead Gen</span>
+          <span class="atag">DTC E-commerce</span>
+        </div>
       </div>
-    </div>
-    <div class="about-tags r">
-      <span class="atag">Meta Ads</span>
-      <span class="atag">TikTok Ads</span>
-      <span class="atag">Google Ads</span>
-      <span class="atag">Creative Strategy</span>
-      <span class="atag">Lead Gen</span>
-      <span class="atag">DTC E-commerce</span>
     </div>
   </div>
 </section>
@@ -658,20 +664,20 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
       <div class="step r d2">
         <div class="snum">Step 3</div>
         <div class="stitle">Launch &amp; Test</div>
-        <div class="sdesc">Concepts go into production and into the account as a structured test — one variable at a time, measured against live CPA.</div>
+        <div class="sdesc">Every test starts from a written hypothesis. Concepts go live as a planned batch, read against soft metrics and your real KPIs.</div>
         <div class="schecks">
-          <div class="sc">Structured test design</div>
-          <div class="sc">Clean creative reads</div>
+          <div class="sc">Hypothesis-led testing</div>
+          <div class="sc">Read against your KPIs</div>
         </div>
         <div class="sarr">→</div>
       </div>
       <div class="step r d3">
         <div class="snum">Step 4</div>
         <div class="stitle">Scale</div>
-        <div class="sdesc">Winners get iterated into new angles and formats, losers get cut, and the creative library compounds month over month.</div>
+        <div class="sdesc">Winners get iterated into new angles, losers get cut, and every result feeds documented learnings the next batch builds on.</div>
         <div class="schecks">
           <div class="sc">Winner iteration</div>
-          <div class="sc">Compounding library</div>
+          <div class="sc">Documented learnings</div>
         </div>
       </div>
     </div>
@@ -1097,13 +1103,15 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
           <div class="tpr">From $3,000</div>
           <span class="tper">Per month</span>
           <div class="tnm">Creative Strategy</div>
-          <div class="tdesc">30+ creative concepts a month with full briefs, competitor research, and winner identification. Your team handles production — no agency markup, faster iteration, and the assets stay yours.<br><br><strong>Scope drives the price:</strong> video vs. static, briefs for creators, creator coordination, and how much of your design team I run.</div>
+          <div class="tdesc">30+ creative concepts a month with full briefs, competitor research, and winner identification. Your team handles production — no agency markup, faster iteration, and the assets stay yours.<br><br><strong>Scope drives the price:</strong> video vs. static, briefs for creators, creator coordination, and whether I'm handing your team briefs or running them day to day.</div>
+          <a href="https://calendar.app.google/tjZBaGKGAgntRVgn7" target="_blank" rel="noopener" class="tcta">Book a Call <span>&rarr;</span></a>
         </div>
         <div class="tier">
           <div class="tpr">Custom</div>
           <span class="tper">On request</span>
           <div class="tnm">Performance-Based</div>
           <div class="tdesc">For brands scaling past $50K/month in ad spend. Retainer plus a share tied to the spend your winning creatives carry — so I'm paid more only when the creative actually scales. Structured case by case.</div>
+          <a href="https://calendar.app.google/tjZBaGKGAgntRVgn7" target="_blank" rel="noopener" class="tcta">Book a Call <span>&rarr;</span></a>
         </div>
       </div>
     </div>
