@@ -138,9 +138,19 @@ document.querySelectorAll('.cc').forEach(c=>counterObs.observe(c));
   });
 })();
 
-/* 4. Creative video — click to play with sound. One video at a time. */
+/* 4. Creative video — click to play with sound, one at a time.
+      Custom control bar: Chrome's native panel is drawn inside the video
+      element, so its scrubber drags arrived here as clicks on VIDEO (which
+      stopped and rewound playback) and a live strip of video stayed visible
+      underneath it. Owning the bar removes both problems. */
 (function(){
   const cards = document.querySelectorAll('.cv-card');
+
+  const fmt = t => {
+    if(!isFinite(t)) return '0:00';
+    const m = Math.floor(t/60), s = Math.floor(t%60);
+    return m + ':' + String(s).padStart(2,'0');
+  };
 
   function stopAllVideos(except){
     cards.forEach(c => {
@@ -149,63 +159,120 @@ document.querySelectorAll('.cc').forEach(c=>counterObs.observe(c));
       v.pause();
       v.currentTime = 0;
       v.muted = true;
-      v.removeAttribute('controls');
       c.classList.remove('playing');
     });
   }
 
   cards.forEach(card => {
     const video = card.querySelector('video');
-    if(!video) return;
+    const media = card.querySelector('.cv-media');
+    if(!video || !media) return;
 
-    /* Once the native controls are up they own the whole video surface.
-       The scrubber lives in the video shadow DOM, so a drag on it arrives
-       here as a plain click on VIDEO — toggling on that stopped playback
-       and rewound to 0, which is why seeking snapped back. */
-    video.addEventListener('click', e => {
-      e.stopPropagation();
-      if(video.hasAttribute('controls')) return;
-      togglePlay();
+    video.removeAttribute('controls');
+
+    /* --- control bar ------------------------------------------------------ */
+    const bar = document.createElement('div');
+    bar.className = 'vctl';
+    bar.innerHTML =
+      '<button class="vbtn vplay" type="button" aria-label="Pause"></button>' +
+      '<div class="vtrack" role="slider" tabindex="0" aria-label="Seek"' +
+      ' aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">' +
+      '<div class="vbuf"></div><div class="vfill"></div><div class="vknob"></div></div>' +
+      '<span class="vtime">0:00</span>' +
+      '<button class="vbtn vmute" type="button" aria-label="Mute"></button>';
+    media.appendChild(bar);
+
+    const btnPlay = bar.querySelector('.vplay');
+    const btnMute = bar.querySelector('.vmute');
+    const track   = bar.querySelector('.vtrack');
+    const fill    = bar.querySelector('.vfill');
+    const knob    = bar.querySelector('.vknob');
+    const time    = bar.querySelector('.vtime');
+
+    const paint = () => {
+      const d = video.duration;
+      const p = (isFinite(d) && d > 0) ? (video.currentTime / d) * 100 : 0;
+      fill.style.width = p + '%';
+      knob.style.left  = p + '%';
+      track.setAttribute('aria-valuenow', Math.round(p));
+      time.textContent = fmt(video.currentTime) + ' / ' + fmt(d);
+      btnPlay.classList.toggle('is-paused', video.paused);
+      btnPlay.setAttribute('aria-label', video.paused ? 'Play' : 'Pause');
+      btnMute.classList.toggle('is-muted', video.muted);
+      btnMute.setAttribute('aria-label', video.muted ? 'Unmute' : 'Mute');
+    };
+
+    video.addEventListener('timeupdate', paint);
+    video.addEventListener('loadedmetadata', paint);
+    video.addEventListener('play', paint);
+    video.addEventListener('pause', paint);
+    video.addEventListener('volumechange', paint);
+
+    /* --- scrubbing -------------------------------------------------------- */
+    const seekTo = clientX => {
+      const r = track.getBoundingClientRect();
+      const ratio = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+      if(isFinite(video.duration)) video.currentTime = ratio * video.duration;
+      paint();
+    };
+    let scrubbing = false;
+    track.addEventListener('pointerdown', e => {
+      e.stopPropagation(); e.preventDefault();
+      scrubbing = true;
+      try{ track.setPointerCapture(e.pointerId); }catch(_){}
+      seekTo(e.clientX);
+    });
+    track.addEventListener('pointermove', e => { if(scrubbing) seekTo(e.clientX); });
+    const endScrub = e => {
+      if(!scrubbing) return;
+      scrubbing = false;
+      try{ track.releasePointerCapture(e.pointerId); }catch(_){}
+    };
+    track.addEventListener('pointerup', endScrub);
+    track.addEventListener('pointercancel', endScrub);
+    track.addEventListener('keydown', e => {
+      if(!isFinite(video.duration)) return;
+      const step = e.shiftKey ? 10 : 5;
+      if(e.key === 'ArrowRight'){ video.currentTime = Math.min(video.duration, video.currentTime + step); e.preventDefault(); }
+      if(e.key === 'ArrowLeft'){ video.currentTime = Math.max(0, video.currentTime - step); e.preventDefault(); }
     });
 
-    card.addEventListener('click', e => {
-      if(e.target.tagName === 'VIDEO') return; /* handled above */
-      togglePlay();
-    });
+    /* the bar is ours: nothing inside it may reach the card handler */
+    bar.addEventListener('click', e => e.stopPropagation());
+    bar.addEventListener('pointerdown', e => e.stopPropagation());
 
-    function togglePlay(){
-      if(video.paused){
-        stopAllVideos(video);
-        video.muted = false;
-        video.currentTime = 0;
-        video.setAttribute('controls', '');
-        const p = video.play();
-        if(p && p.then) p.then(() => {
-          card.classList.add('playing');
-          /* On mobile carousel: scroll card into view (center it) */
-          if(window.matchMedia('(max-width: 900px)').matches){
-            card.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
-          }
-        }).catch(err => {
-          /* If unmute autoplay fails, fallback to muted */
-          video.muted = true;
-          video.play().then(() => card.classList.add('playing')).catch(()=>{});
-        });
-      } else {
-        video.pause();
-        video.currentTime = 0;
+    btnPlay.addEventListener('click', () => { video.paused ? video.play() : video.pause(); });
+    btnMute.addEventListener('click', () => { video.muted = !video.muted; paint(); });
+
+    /* --- start / stop ----------------------------------------------------- */
+    function start(){
+      stopAllVideos(video);
+      video.muted = false;
+      video.currentTime = 0;
+      const p = video.play();
+      if(p && p.then) p.then(() => {
+        card.classList.add('playing');
+        if(window.matchMedia('(max-width: 900px)').matches){
+          card.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+        }
+      }).catch(() => {
         video.muted = true;
-        video.removeAttribute('controls');
-        card.classList.remove('playing');
-      }
+        video.play().then(() => card.classList.add('playing')).catch(()=>{});
+      });
     }
-
-    /* When video ends naturally, reset to preview state */
-    video.addEventListener('ended', () => {
+    function stop(){
+      video.pause();
       video.currentTime = 0;
       video.muted = true;
-      video.removeAttribute('controls');
       card.classList.remove('playing');
+      paint();
+    }
+
+    card.addEventListener('click', () => {
+      card.classList.contains('playing') ? stop() : start();
     });
+
+    video.addEventListener('ended', stop);
+    paint();
   });
 })();

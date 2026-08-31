@@ -334,6 +334,41 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .cv-media{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:var(--b4);cursor:pointer}
 .cv-media video,.cv-media img{width:100%;height:100%;object-fit:cover;display:block}
 .cv-media video{cursor:pointer;background:#000}
+/* Custom video control bar — replaces the native panel */
+.vctl{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;
+  gap:9px;padding:9px 10px 10px;opacity:0;pointer-events:none;transition:opacity .2s;
+  background:linear-gradient(rgba(7,7,8,0),rgba(7,7,8,.86) 42%,rgba(7,7,8,.96))}
+.cv-card.playing .vctl{opacity:1;pointer-events:auto}
+.vbtn{flex:0 0 auto;width:20px;height:20px;padding:0;border:0;background:transparent;
+  cursor:pointer;position:relative;opacity:.92;transition:opacity .15s}
+.vbtn:hover{opacity:1}
+.vbtn:focus-visible{outline:2px solid var(--g);outline-offset:2px;border-radius:3px}
+.vplay::before,.vplay::after{content:'';position:absolute;top:3px;width:4px;height:14px;
+  background:var(--tx);border-radius:1px}
+.vplay::before{left:4px}.vplay::after{left:12px}
+.vplay.is-paused::before{left:5px;width:0;height:0;background:transparent;top:2px;
+  border-left:12px solid var(--tx);border-top:8px solid transparent;border-bottom:8px solid transparent;
+  border-radius:0}
+.vplay.is-paused::after{display:none}
+.vmute::before{content:'';position:absolute;left:2px;top:5px;width:0;height:0;
+  border-right:9px solid var(--tx);border-top:5px solid transparent;border-bottom:5px solid transparent}
+.vmute::after{content:'';position:absolute;left:12px;top:6px;width:6px;height:8px;
+  border:2px solid var(--tx);border-left:0;border-radius:0 8px 8px 0}
+.vmute.is-muted::after{width:9px;height:2px;top:9px;left:11px;border:0;background:var(--c1);
+  transform:rotate(-45deg);border-radius:1px}
+.vtrack{flex:1 1 auto;position:relative;height:14px;cursor:pointer;touch-action:none;
+  display:flex;align-items:center}
+.vtrack::before{content:'';position:absolute;left:0;right:0;height:3px;border-radius:2px;
+  background:rgba(255,255,255,.26)}
+.vfill{position:absolute;left:0;height:3px;width:0;border-radius:2px;background:var(--g)}
+.vknob{position:absolute;top:50%;left:0;width:10px;height:10px;border-radius:50%;
+  background:var(--g);transform:translate(-50%,-50%);opacity:0;transition:opacity .15s}
+.vtrack:hover .vknob,.vtrack:focus-visible .vknob,.cv-card.playing .vtrack:active .vknob{opacity:1}
+.vtrack:focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:3px}
+.vtime{flex:0 0 auto;font-size:.62rem;font-weight:600;letter-spacing:.04em;color:var(--tx);
+  font-variant-numeric:tabular-nums;white-space:nowrap;opacity:.9}
+@media(max-width:600px){.vtime{display:none}}
+
 /* Play indicator overlay for videos */
 .cv-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(200,169,110,.92);display:flex;align-items:center;justify-content:center;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:2;backdrop-filter:blur(4px);box-shadow:0 4px 20px rgba(0,0,0,.4)}
 .cv-play::before{content:'';width:0;height:0;border-left:14px solid var(--b);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
@@ -493,7 +528,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .pfbody{padding-top:0}
 .pfhero{padding:140px 0 44px;background:var(--b);position:relative}
 /* it is the page hero, so match the main hero scale, not the section scale */
-.pfhero .st{margin-bottom:22px;font-size:clamp(3.5rem,7vw,6.5rem);line-height:.95}
+.pfhero .st{margin-bottom:22px;font-size:clamp(2.8rem,5.6vw,5.2rem);line-height:.95;max-width:15ch}
 .pfhero .ssub{max-width:640px}
 .pfnote{margin-top:14px;color:var(--m)}
 .pfhint{margin-top:20px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g)}
