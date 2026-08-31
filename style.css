@@ -557,10 +557,10 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .pfbadge.anim{color:var(--c1);border:1px solid rgba(251,113,133,.28)}
 .pfbadge.unk{color:var(--m2);border:1px solid var(--br2)}
 /* scrim so the badge reads over a bright frame; drops away on play */
-.pfcard .cv-media::before{content:'';position:absolute;top:0;left:0;right:0;height:88px;z-index:1;
+.cv-card .cv-media::before{content:'';position:absolute;top:0;left:0;right:0;height:88px;z-index:1;
   pointer-events:none;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,0));transition:opacity .25s}
-.pfcard.playing .cv-media::before{opacity:0}
-.pfcard.playing .pfbadge{opacity:0;pointer-events:none;transition:opacity .2s}
+.cv-card.playing .cv-media::before{opacity:0}
+.cv-card.playing .pfbadge{opacity:0;pointer-events:none;transition:opacity .2s}
 .pfempty{text-align:center;color:var(--m);font-size:.9rem;padding:60px 0}
 .pfhero .stag{margin-bottom:18px}
 @media(max-width:900px){
