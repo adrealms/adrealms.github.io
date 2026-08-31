@@ -343,21 +343,23 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
   background:linear-gradient(rgba(7,7,8,0),rgba(7,7,8,.72) 30%,var(--b) 62%,var(--b) 100%)}
 .cv-card.playing .vctl{opacity:1;pointer-events:auto}
 .vbtn{flex:0 0 auto;width:20px;height:20px;padding:0;border:0;background:transparent;
-  cursor:pointer;position:relative;opacity:.92;transition:opacity .15s}
+  cursor:pointer;opacity:.92;transition:opacity .15s;
+  display:flex;align-items:center;justify-content:center}
 .vbtn:hover{opacity:1}
 .vbtn:focus-visible{outline:2px solid var(--g);outline-offset:2px;border-radius:3px}
-.vplay::before,.vplay::after{content:'';position:absolute;top:3px;width:4px;height:14px;
-  background:var(--tx);border-radius:1px}
-.vplay::before{left:4px}.vplay::after{left:12px}
-.vplay.is-paused::before{left:5px;width:0;height:0;background:transparent;top:2px;
-  border-left:12px solid var(--tx);border-top:8px solid transparent;border-bottom:8px solid transparent;
-  border-radius:0}
+.vplay{gap:4px}
+.vplay::before,.vplay::after{content:'';width:4px;height:14px;background:var(--tx);border-radius:1px}
+.vplay.is-paused{gap:0}
+.vplay.is-paused::before{width:0;height:0;background:transparent;border-radius:0;
+  border-left:12px solid var(--tx);border-top:8px solid transparent;border-bottom:8px solid transparent}
 .vplay.is-paused::after{display:none}
-.vmute::before{content:'';position:absolute;left:2px;top:5px;width:0;height:0;
+.vmute{gap:1px}
+.vmute::before{content:'';width:0;height:0;
   border-right:9px solid var(--tx);border-top:5px solid transparent;border-bottom:5px solid transparent}
-.vmute::after{content:'';position:absolute;left:12px;top:6px;width:6px;height:8px;
-  border:2px solid var(--tx);border-left:0;border-radius:0 8px 8px 0}
-.vmute.is-muted::after{width:9px;height:2px;top:9px;left:11px;border:0;background:var(--c1);
+.vmute::after{content:'';width:6px;height:8px;border:2px solid var(--tx);border-left:0;
+  border-radius:0 8px 8px 0}
+.vmute.is-muted{gap:2px}
+.vmute.is-muted::after{width:9px;height:2px;border:0;background:var(--c1);
   transform:rotate(-45deg);border-radius:1px}
 .vtrack{flex:1 1 auto;position:relative;height:14px;cursor:pointer;touch-action:none;
   display:flex;align-items:center}
@@ -371,6 +373,16 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .vtime{flex:0 0 auto;font-size:.62rem;font-weight:600;letter-spacing:.04em;color:var(--tx);
   font-variant-numeric:tabular-nums;white-space:nowrap;opacity:.9}
 @media(max-width:600px){.vtime{display:none}}
+/* 20px is fine for a mouse and far too small for a thumb. On a phone the
+   cards are narrow enough that an inline track collapses to ~66px — about
+   0.6s per pixel — so it moves to its own full-width row above the buttons. */
+@media(max-width:900px){
+  .vctl{flex-wrap:wrap;gap:6px 12px;padding:8px 10px 9px}
+  .vbtn{width:36px;height:36px}
+  .vtrack{order:-1;flex:1 0 100%;height:26px}
+  .vknob{width:12px;height:12px;opacity:1}
+  .pfbadge{font-size:.62rem}
+}
 
 /* Play indicator overlay for videos */
 .cv-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(200,169,110,.92);display:flex;align-items:center;justify-content:center;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:2;backdrop-filter:blur(4px);box-shadow:0 4px 20px rgba(0,0,0,.4)}
