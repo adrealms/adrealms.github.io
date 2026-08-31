@@ -492,8 +492,11 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 /* ═══ PRIVATE PORTFOLIO PAGE ═══ */
 .pfbody{padding-top:0}
 .pfhero{padding:140px 0 44px;background:var(--b);position:relative}
-.pfhero .st{margin-bottom:18px}
-.pfhero .ssub{max-width:620px}
+/* it is the page hero, so match the main hero scale, not the section scale */
+.pfhero .st{margin-bottom:22px;font-size:clamp(3.5rem,7vw,6.5rem);line-height:.95}
+.pfhero .ssub{max-width:640px}
+.pfnote{margin-top:14px;color:var(--m)}
+.pfhint{margin-top:20px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g)}
 .pfchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
 .pfchip{font-family:inherit;font-size:.68rem;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;color:var(--m2);background:transparent;cursor:pointer;
@@ -508,11 +511,15 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .pfgrid .cv-media{position:relative}
 .pfbadge{position:absolute;top:10px;left:10px;z-index:3;font-size:.56rem;font-weight:700;
   letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:3px;
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.pfbadge.filmed{background:rgba(94,234,212,.16);color:var(--t1);border:1px solid var(--brt)}
-.pfbadge.ai{background:rgba(200,169,110,.16);color:var(--g2);border:1px solid var(--br)}
-.pfbadge.anim{background:rgba(251,113,133,.14);color:var(--c1);border:1px solid rgba(251,113,133,.28)}
-.pfbadge.unk{background:rgba(255,255,255,.08);color:var(--m);border:1px solid var(--br2)}
+  background:rgba(8,8,10,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.pfbadge.filmed{color:var(--t1);border:1px solid var(--brt)}
+.pfbadge.ai{color:var(--g2);border:1px solid var(--br)}
+.pfbadge.anim{color:var(--c1);border:1px solid rgba(251,113,133,.28)}
+.pfbadge.unk{color:var(--m2);border:1px solid var(--br2)}
+/* scrim so the badge reads over a bright frame; drops away on play */
+.pfcard .cv-media::before{content:'';position:absolute;top:0;left:0;right:0;height:88px;z-index:1;
+  pointer-events:none;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,0));transition:opacity .25s}
+.pfcard.playing .cv-media::before{opacity:0}
 .pfcard.playing .pfbadge{opacity:0;pointer-events:none;transition:opacity .2s}
 .pfempty{text-align:center;color:var(--m);font-size:.9rem;padding:60px 0}
 .pfhero .stag{margin-bottom:18px}

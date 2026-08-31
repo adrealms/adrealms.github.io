@@ -158,17 +158,18 @@ document.querySelectorAll('.cc').forEach(c=>counterObs.observe(c));
     const video = card.querySelector('video');
     if(!video) return;
 
-    /* Block default video click — we handle it on the card level */
+    /* Once the native controls are up they own the whole video surface.
+       The scrubber lives in the video shadow DOM, so a drag on it arrives
+       here as a plain click on VIDEO — toggling on that stopped playback
+       and rewound to 0, which is why seeking snapped back. */
     video.addEventListener('click', e => {
       e.stopPropagation();
+      if(video.hasAttribute('controls')) return;
       togglePlay();
     });
 
     card.addEventListener('click', e => {
-      /* Don't trigger if clicked on native controls */
-      if(e.target !== card && e.target !== card.querySelector('.cv-media') && e.target !== card.querySelector('.cv-play')) {
-        if(e.target.tagName === 'VIDEO') return; /* let video handler do it */
-      }
+      if(e.target.tagName === 'VIDEO') return; /* handled above */
       togglePlay();
     });
 
