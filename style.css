@@ -335,9 +335,12 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .cv-media video,.cv-media img{width:100%;height:100%;object-fit:cover;display:block}
 .cv-media video{cursor:pointer;background:#000}
 /* Custom video control bar — replaces the native panel */
-.vctl{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;
-  gap:9px;padding:9px 10px 10px;opacity:0;pointer-events:none;transition:opacity .2s;
-  background:linear-gradient(rgba(7,7,8,0),rgba(7,7,8,.86) 42%,rgba(7,7,8,.96))}
+/* the lower half is fully opaque, not a 96%% gradient: the last few percent
+   let the moving video bleed through as a shifting strip. -1px bottom absorbs
+   the fractional container height so no seam opens at odd zoom levels. */
+.vctl{position:absolute;left:0;right:0;bottom:-1px;z-index:4;display:flex;align-items:center;
+  gap:9px;padding:9px 10px 11px;opacity:0;pointer-events:none;transition:opacity .2s;
+  background:linear-gradient(rgba(7,7,8,0),rgba(7,7,8,.72) 30%,var(--b) 62%,var(--b) 100%)}
 .cv-card.playing .vctl{opacity:1;pointer-events:auto}
 .vbtn{flex:0 0 auto;width:20px;height:20px;padding:0;border:0;background:transparent;
   cursor:pointer;position:relative;opacity:.92;transition:opacity .15s}
@@ -528,7 +531,9 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .pfbody{padding-top:0}
 .pfhero{padding:140px 0 44px;background:var(--b);position:relative}
 /* it is the page hero, so match the main hero scale, not the section scale */
-.pfhero .st{margin-bottom:22px;font-size:clamp(2.8rem,5.6vw,5.2rem);line-height:.95;max-width:15ch}
+/* the base heading rule is h2.st, so an h1 never matched it — restate the
+   family here and use the main hero scale, which is what this is */
+.pfhero .st{margin-bottom:22px;font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(3.5rem,7vw,6.5rem);letter-spacing:.02em;line-height:.95;text-transform:uppercase}
 .pfhero .ssub{max-width:640px}
 .pfnote{margin-top:14px;color:var(--m)}
 .pfhint{margin-top:20px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g)}
