@@ -1,0 +1,5 @@
+# Staging area for raw uploads — never published, never committed
+_inbox/
+
+# Local preview config — not part of the site
+.claude/
