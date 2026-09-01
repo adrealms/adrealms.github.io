@@ -164,7 +164,7 @@ h2.st .t{color:var(--t2)}
 .about-header .stag{margin-left:auto;margin-right:auto;margin-bottom:18px}
 .about-header h2{margin-bottom:0;max-width:880px;margin-left:auto;margin-right:auto}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;position:relative;z-index:1;margin-bottom:48px}
-.about-me{display:flex;align-items:center;gap:18px;margin-bottom:28px;padding-bottom:26px;border-bottom:1px solid var(--br2)}
+.about-me{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px;text-align:left}
 .about-photo{width:104px;height:104px;border-radius:10px;object-fit:cover;border:1px solid var(--br);flex-shrink:0;display:block}
 .about-id-name{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.6rem;letter-spacing:.04em;line-height:1;color:var(--tx);margin-bottom:7px}
 .about-id-role{font-size:.8rem;font-weight:600;letter-spacing:.04em;color:var(--g);margin-bottom:5px}
@@ -175,13 +175,16 @@ h2.st .t{color:var(--t2)}
 .about-text-block p .key{color:var(--g);font-weight:600}
 .about-right{display:flex;flex-direction:column}
 .about-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.acard{background:var(--b3);border:1px solid var(--br2);border-radius:6px;padding:24px;transition:border-color .3s,transform .2s}
-.acard:hover{border-color:var(--brt);transform:translateY(-2px)}
+.acard{background:linear-gradient(160deg,#17171C 0%,#101013 100%);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:24px;position:relative;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease}
+.acard:hover{border-color:var(--br);background:linear-gradient(160deg,#1C1C22 0%,#121215 100%);box-shadow:0 8px 26px rgba(0,0,0,.45)}
+.acard:hover h4::after{width:44px}
 .acard-icon{width:36px;height:36px;border-radius:8px;background:var(--td);border:1px solid var(--brt);display:flex;align-items:center;justify-content:center;color:var(--t2);font-family:'Bebas Neue',Impact,sans-serif;font-size:1.1rem;margin-bottom:14px}
-.acard h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx);margin-bottom:8px}
+.acard h4{font-size:.95rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g);margin-bottom:14px;line-height:1.25;padding-bottom:12px;position:relative}
+.acard h4::after{content:'';position:absolute;left:0;bottom:0;width:26px;height:2px;border-radius:1px;background:var(--t2);transition:width .3s ease}
 .acard p{font-size:.94rem;color:var(--m2);line-height:1.6}
 .about-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start;margin-top:26px;padding-top:26px;border-top:1px solid var(--br2);position:relative;z-index:1}
-.atag{font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--g);background:var(--gd);border:1px solid var(--br);padding:6px 14px;border-radius:100px}
+.atag{font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--m2);background:transparent;border:1px solid var(--br2);padding:6px 14px;border-radius:100px;transition:color .25s ease,border-color .25s ease}
+.atag:hover{color:var(--g);border-color:var(--br)}
 
 /* PROCESS */
 #process{background:var(--b)}
@@ -476,7 +479,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
   .about-grid{grid-template-columns:1fr;gap:36px;margin-bottom:32px}
   .about-tags{justify-content:center}
   .about-text-block{text-align:left}
-  .about-me{gap:14px}
+  .about-me{gap:14px;margin-top:22px}
   .about-photo{width:84px;height:84px}
   .about-id-name{font-size:1.35rem}
   .about-cards{grid-template-columns:1fr 1fr}
