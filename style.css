@@ -541,7 +541,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 
 /* ═══ PRIVATE PORTFOLIO PAGE ═══ */
 .pfbody{padding-top:0}
-.pfhero{padding:140px 0 44px;background:var(--b);position:relative}
+.pfhero{padding:140px 48px 44px;background:var(--b);position:relative}
 /* it is the page hero, so match the main hero scale, not the section scale */
 /* the base heading rule is h2.st, so an h1 never matched it — restate the
    family here and use the main hero scale, which is what this is */
@@ -557,7 +557,7 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .pfchip:hover{color:var(--tx);border-color:var(--br)}
 .pfchip.on{color:var(--b);background:var(--g);border-color:var(--g)}
 .pfchip:focus-visible{outline:2px solid var(--t2);outline-offset:2px}
-.pfgrid-wrap{padding:10px 0 90px;background:var(--b)}
+.pfgrid-wrap{padding:10px 48px 90px;background:var(--b)}
 .pfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:18px}
 .pfcard[hidden]{display:none}
 .pfgrid .cv-media{position:relative}
@@ -576,6 +576,11 @@ footer{padding:26px 48px;border-top:1px solid var(--br2);display:flex;align-item
 .pfempty{text-align:center;color:var(--m);font-size:.9rem;padding:60px 0}
 .pfhero .stag{margin-bottom:18px}
 @media(max-width:900px){
-  .pfhero{padding:110px 0 32px}
-  .pfgrid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+  /* match the gutters every other section gets on a phone */
+  .pfhero{padding:110px 24px 32px;text-align:center}
+  .pfgrid-wrap{padding:10px 24px 70px}
+  .pfhero .stag{margin-left:auto;margin-right:auto}
+  .pfhero .ssub{margin-left:auto;margin-right:auto}
+  .pfchips{justify-content:center}
+  .pfgrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 }
